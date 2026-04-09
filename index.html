@@ -1,8 +1,301 @@
-{\rtf1\ansi\ansicpg949\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+export default function WithMarketingHomepage() {
+  const services = [
+    {
+      title: "네이버 플레이스 최적화",
+      desc: "검색 노출부터 클릭, 방문 전환까지 연결되는 플레이스 구조를 설계합니다.",
+    },
+    {
+      title: "블로그·리뷰 콘텐츠 운영",
+      desc: "보여주기용 글이 아니라 실제 유입과 신뢰를 만드는 콘텐츠 흐름을 만듭니다.",
+    },
+    {
+      title: "광고 세팅 및 전환 관리",
+      desc: "무작정 광고비를 태우지 않고 전환 가능성이 높은 구조부터 점검합니다.",
+    },
+    {
+      title: "매장 분석 컨설팅",
+      desc: "업종, 지역, 경쟁 매장, 고객 행동 흐름을 분석해 실질적인 개선 방향을 제안합니다.",
+    },
+  ];
 
-\f0\fs24 \cf0 \uc0\u50508 \u46993 }
+  const points = [
+    "광고는 하고 있는데 문의가 적은 매장",
+    "네이버 노출은 되는데 방문 전환이 약한 업체",
+    "블로그, 리뷰, 플레이스를 따로 운영해 비효율적인 경우",
+    "무엇부터 손봐야 할지 모르는 소상공인·사업자",
+  ];
+
+  const process = [
+    {
+      step: "01",
+      title: "진단",
+      desc: "현재 노출, 콘텐츠, 광고, 전환 흐름을 빠르게 점검합니다.",
+    },
+    {
+      step: "02",
+      title: "전략 설계",
+      desc: "업종과 지역에 맞는 네이버 중심 전환 전략을 설계합니다.",
+    },
+    {
+      step: "03",
+      title: "실행",
+      desc: "플레이스, 콘텐츠, 광고, 배너, 이미지 등 핵심 요소를 정리합니다.",
+    },
+    {
+      step: "04",
+      title: "개선",
+      desc: "반응 데이터를 보며 실제 문의와 방문 중심으로 계속 보정합니다.",
+    },
+  ];
+
+  return (
+    <div className="min-h-screen bg-white text-slate-900">
+      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+          <div>
+            <div className="text-2xl font-black tracking-tight text-sky-700">WITH</div>
+            <div className="text-xs text-slate-500">NAVER PERFORMANCE MARKETING</div>
+          </div>
+          <nav className="hidden gap-8 md:flex text-sm font-medium text-slate-600">
+            <a href="#services" className="hover:text-sky-700">서비스</a>
+            <a href="#process" className="hover:text-sky-700">진행 방식</a>
+            <a href="#about" className="hover:text-sky-700">회사 소개</a>
+            <a href="#contact" className="hover:text-sky-700">문의하기</a>
+          </nav>
+          <a
+            href="#contact"
+            className="rounded-2xl bg-sky-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
+          >
+            상담 문의
+          </a>
+        </div>
+      </header>
+
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-slate-50" />
+        <div className="absolute -right-16 top-10 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" />
+        <div className="absolute -left-16 bottom-10 h-72 w-72 rounded-full bg-slate-200/40 blur-3xl" />
+
+        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
+          <div className="flex flex-col justify-center">
+            <div className="mb-5 inline-flex w-fit items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700">
+              네이버 중심 매출 전환 마케팅
+            </div>
+            <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
+              노출만 만드는 마케팅이 아니라
+              <br />
+              <span className="text-sky-700">문의와 매출로 이어지는 홈페이지</span>
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
+              위드는 네이버 플레이스, 콘텐츠, 광고, 상세 설계를 따로 보지 않습니다.
+              고객이 검색하고 클릭하고 문의하는 흐름 전체를 설계합니다.
+            </p>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#contact"
+                className="rounded-2xl bg-sky-700 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-sky-200 transition hover:scale-[1.02]"
+              >
+                무료 상담 받기
+              </a>
+              <a
+                href="#services"
+                className="rounded-2xl border border-slate-300 bg-white px-6 py-4 text-base font-semibold text-slate-800 transition hover:border-sky-700 hover:text-sky-700"
+              >
+                서비스 보기
+              </a>
+            </div>
+            <div className="mt-10 grid gap-4 sm:grid-cols-3">
+              {[
+                ["네이버 최적화", "플레이스·콘텐츠·광고"],
+                ["전환 중심 설계", "방문·문의 흐름 개선"],
+                ["업종 맞춤 전략", "지역·경쟁 분석 기반"],
+              ].map(([title, desc]) => (
+                <div key={title} className="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm">
+                  <div className="text-base font-bold text-slate-900">{title}</div>
+                  <div className="mt-2 text-sm leading-6 text-slate-600">{desc}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="flex items-center">
+            <div className="w-full rounded-[32px] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/60">
+              <div className="rounded-[28px] bg-slate-950 p-7 text-white">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <div className="text-sm text-slate-400">Performance Snapshot</div>
+                    <div className="mt-1 text-2xl font-bold">고객이 반응하는 구조</div>
+                  </div>
+                  <div className="rounded-full bg-sky-500/20 px-4 py-2 text-sm font-semibold text-sky-300">
+                    WITH SYSTEM
+                  </div>
+                </div>
+
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {[
+                    ["검색 노출", "플레이스·콘텐츠 구조 개선"],
+                    ["클릭 유도", "신뢰 가는 문구와 이미지 설계"],
+                    ["문의 전환", "CTA 흐름 최적화"],
+                    ["운영 보정", "데이터 기반 반복 개선"],
+                  ].map(([title, desc]) => (
+                    <div key={title} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                      <div className="text-lg font-bold">{title}</div>
+                      <div className="mt-2 text-sm leading-6 text-slate-300">{desc}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 rounded-2xl bg-white/5 p-5">
+                  <div className="text-sm text-slate-400">핵심 메시지</div>
+                  <p className="mt-3 text-lg leading-8 text-slate-100">
+                    “광고만 집행하는 것이 아니라, 고객이 실제로 움직이게 만드는 구조를 설계합니다.”
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="grid gap-8 rounded-[32px] border border-slate-200 bg-slate-50 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
+          <div>
+            <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">왜 반응이 안 날까</div>
+            <h2 className="mt-4 text-3xl font-black leading-tight text-slate-900 md:text-4xl">
+              많은 업체가 광고보다 먼저
+              <br />
+              구조를 손봐야 합니다.
+            </h2>
+            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
+              제대로 설계되지 않은 플레이스, 약한 상세 문구, 정리되지 않은 리뷰 흐름, 클릭을 못 만드는 이미지와 CTA는
+              광고를 집행해도 성과를 깎아먹습니다.
+            </p>
+          </div>
+          <div className="grid gap-4">
+            {points.map((item) => (
+              <div key={item} className="rounded-2xl bg-white p-5 text-base font-medium text-slate-700 shadow-sm ring-1 ring-slate-200">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="services" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="max-w-2xl">
+          <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">Services</div>
+          <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 md:text-5xl">
+            매출 전환을 위한 핵심 서비스
+          </h2>
+          <p className="mt-5 text-base leading-8 text-slate-600">
+            단일 채널 운영이 아니라, 고객이 검색부터 문의까지 이어지도록 필요한 핵심 요소를 묶어서 설계합니다.
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          {services.map((service) => (
+            <div key={service.title} className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
+              <div className="mb-5 inline-flex rounded-full bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700">
+                WITH
+              </div>
+              <h3 className="text-xl font-black text-slate-900">{service.title}</h3>
+              <p className="mt-4 text-sm leading-7 text-slate-600">{service.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="process" className="bg-slate-950 py-20 text-white">
+        <div className="mx-auto max-w-7xl px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-300">Process</div>
+            <h2 className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
+              복잡하지 않게,
+              <br />
+              성과 중심으로 진행합니다.
+            </h2>
+          </div>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {process.map((item) => (
+              <div key={item.step} className="rounded-[28px] border border-white/10 bg-white/5 p-7 backdrop-blur">
+                <div className="text-sm font-bold text-sky-300">STEP {item.step}</div>
+                <h3 className="mt-4 text-2xl font-black">{item.title}</h3>
+                <p className="mt-4 text-sm leading-7 text-slate-300">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="about" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
+          <div>
+            <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">About WITH</div>
+            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 md:text-5xl">
+              위드는 결과를 위해
+              <br />
+              필요한 것부터 정리합니다.
+            </h2>
+            <p className="mt-6 text-base leading-8 text-slate-600">
+              마케팅은 채널이 아니라 흐름입니다. 검색에서 보이고, 클릭하고, 신뢰하고, 문의하게 만드는 과정이 모두 연결되어야 합니다.
+              위드는 네이버 중심의 실제 운영 경험을 바탕으로, 눈에 보기 좋은 자료보다 반응이 오는 구조를 더 중요하게 생각합니다.
+            </p>
+          </div>
+
+          <div className="grid gap-5">
+            {[
+              "업종과 지역에 맞춘 전략 설계",
+              "전환을 고려한 카피와 이미지 구성",
+              "광고·콘텐츠·플레이스를 따로 보지 않는 통합 운영",
+              "지속적인 분석과 개선 중심 진행",
+            ].map((item) => (
+              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-base font-semibold text-slate-800">
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="px-6 pb-24 lg:px-8">
+        <div className="mx-auto max-w-7xl rounded-[36px] bg-gradient-to-r from-sky-700 to-cyan-600 p-10 text-white shadow-2xl shadow-sky-200/60 lg:p-14">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+            <div>
+              <div className="text-sm font-bold uppercase tracking-[0.2em] text-white/80">Contact</div>
+              <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">
+                지금 필요한 건
+                <br />
+                더 많은 광고비가 아니라
+                <br />
+                더 잘 설계된 전환 구조입니다.
+              </h2>
+              <p className="mt-6 max-w-2xl text-base leading-8 text-white/90">
+                홈페이지, 플레이스, 블로그, 리뷰, 광고 흐름을 함께 점검하고 싶다면 편하게 문의하세요.
+                현재 운영 상태에 맞는 방향으로 빠르게 안내해드립니다.
+              </p>
+            </div>
+
+            <div className="rounded-[28px] bg-white p-7 text-slate-900 shadow-2xl">
+              <div className="text-2xl font-black">상담 문의</div>
+              <p className="mt-3 text-sm leading-7 text-slate-600">
+                아래 버튼과 연락처 영역은 실제 운영 채널에 맞게 교체해서 사용하시면 됩니다.
+              </p>
+              <div className="mt-6 grid gap-4">
+                <a href="mailto:hello@withmarketing.co.kr" className="rounded-2xl bg-slate-950 px-5 py-4 text-center text-sm font-semibold text-white transition hover:opacity-90">
+                  이메일 문의
+                </a>
+                <a href="https://pf.kakao.com/" className="rounded-2xl border border-slate-300 px-5 py-4 text-center text-sm font-semibold text-slate-900 transition hover:border-sky-700 hover:text-sky-700">
+                  카카오톡 채널 연결
+                </a>
+                <a href="tel:010-0000-0000" className="rounded-2xl border border-slate-300 px-5 py-4 text-center text-sm font-semibold text-slate-900 transition hover:border-sky-700 hover:text-sky-700">
+                  전화 문의
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  );
+}
