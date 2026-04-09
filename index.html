@@ -1,301 +1,762 @@
-export default function WithMarketingHomepage() {
-  const services = [
-    {
-      title: "네이버 플레이스 최적화",
-      desc: "검색 노출부터 클릭, 방문 전환까지 연결되는 플레이스 구조를 설계합니다.",
-    },
-    {
-      title: "블로그·리뷰 콘텐츠 운영",
-      desc: "보여주기용 글이 아니라 실제 유입과 신뢰를 만드는 콘텐츠 흐름을 만듭니다.",
-    },
-    {
-      title: "광고 세팅 및 전환 관리",
-      desc: "무작정 광고비를 태우지 않고 전환 가능성이 높은 구조부터 점검합니다.",
-    },
-    {
-      title: "매장 분석 컨설팅",
-      desc: "업종, 지역, 경쟁 매장, 고객 행동 흐름을 분석해 실질적인 개선 방향을 제안합니다.",
-    },
-  ];
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WITH | 네이버 마케팅 전문</title>
+  <meta name="description" content="네이버 플레이스, 블로그, 광고까지 매출 전환 중심으로 설계하는 WITH 마케팅 홈페이지" />
+  <style>
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Apple SD Gothic Neo', 'Pretendard', 'Noto Sans KR', sans-serif;
+      color: #0f172a;
+      background: #f8fbff;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-  const points = [
-    "광고는 하고 있는데 문의가 적은 매장",
-    "네이버 노출은 되는데 방문 전환이 약한 업체",
-    "블로그, 리뷰, 플레이스를 따로 운영해 비효율적인 경우",
-    "무엇부터 손봐야 할지 모르는 소상공인·사업자",
-  ];
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-  const process = [
-    {
-      step: "01",
-      title: "진단",
-      desc: "현재 노출, 콘텐츠, 광고, 전환 흐름을 빠르게 점검합니다.",
-    },
-    {
-      step: "02",
-      title: "전략 설계",
-      desc: "업종과 지역에 맞는 네이버 중심 전환 전략을 설계합니다.",
-    },
-    {
-      step: "03",
-      title: "실행",
-      desc: "플레이스, 콘텐츠, 광고, 배너, 이미지 등 핵심 요소를 정리합니다.",
-    },
-    {
-      step: "04",
-      title: "개선",
-      desc: "반응 데이터를 보며 실제 문의와 방문 중심으로 계속 보정합니다.",
-    },
-  ];
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.16);
+    }
 
-  return (
-    <div className="min-h-screen bg-white text-slate-900">
-      <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-          <div>
-            <div className="text-2xl font-black tracking-tight text-sky-700">WITH</div>
-            <div className="text-xs text-slate-500">NAVER PERFORMANCE MARKETING</div>
-          </div>
-          <nav className="hidden gap-8 md:flex text-sm font-medium text-slate-600">
-            <a href="#services" className="hover:text-sky-700">서비스</a>
-            <a href="#process" className="hover:text-sky-700">진행 방식</a>
-            <a href="#about" className="hover:text-sky-700">회사 소개</a>
-            <a href="#contact" className="hover:text-sky-700">문의하기</a>
-          </nav>
-          <a
-            href="#contact"
-            className="rounded-2xl bg-sky-700 px-5 py-3 text-sm font-semibold text-white shadow-sm transition hover:scale-[1.02]"
-          >
-            상담 문의
-          </a>
-        </div>
-      </header>
+    .topbar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 18px 0;
+    }
 
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-sky-50 via-white to-slate-50" />
-        <div className="absolute -right-16 top-10 h-72 w-72 rounded-full bg-sky-200/40 blur-3xl" />
-        <div className="absolute -left-16 bottom-10 h-72 w-72 rounded-full bg-slate-200/40 blur-3xl" />
+    .brand {
+      font-size: 28px;
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #2381d9;
+    }
 
-        <div className="relative mx-auto grid max-w-7xl gap-14 px-6 py-20 lg:grid-cols-2 lg:px-8 lg:py-28">
-          <div className="flex flex-col justify-center">
-            <div className="mb-5 inline-flex w-fit items-center rounded-full border border-sky-200 bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700">
-              네이버 중심 매출 전환 마케팅
-            </div>
-            <h1 className="max-w-2xl text-4xl font-black leading-tight tracking-tight text-slate-900 md:text-6xl">
-              노출만 만드는 마케팅이 아니라
-              <br />
-              <span className="text-sky-700">문의와 매출로 이어지는 홈페이지</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-600">
-              위드는 네이버 플레이스, 콘텐츠, 광고, 상세 설계를 따로 보지 않습니다.
-              고객이 검색하고 클릭하고 문의하는 흐름 전체를 설계합니다.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#contact"
-                className="rounded-2xl bg-sky-700 px-6 py-4 text-base font-semibold text-white shadow-lg shadow-sky-200 transition hover:scale-[1.02]"
-              >
-                무료 상담 받기
-              </a>
-              <a
-                href="#services"
-                className="rounded-2xl border border-slate-300 bg-white px-6 py-4 text-base font-semibold text-slate-800 transition hover:border-sky-700 hover:text-sky-700"
-              >
-                서비스 보기
-              </a>
-            </div>
-            <div className="mt-10 grid gap-4 sm:grid-cols-3">
-              {[
-                ["네이버 최적화", "플레이스·콘텐츠·광고"],
-                ["전환 중심 설계", "방문·문의 흐름 개선"],
-                ["업종 맞춤 전략", "지역·경쟁 분석 기반"],
-              ].map(([title, desc]) => (
-                <div key={title} className="rounded-2xl border border-slate-200 bg-white/80 p-5 shadow-sm">
-                  <div className="text-base font-bold text-slate-900">{title}</div>
-                  <div className="mt-2 text-sm leading-6 text-slate-600">{desc}</div>
-                </div>
-              ))}
-            </div>
-          </div>
+    .brand-sub {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: -3px;
+      letter-spacing: 0.12em;
+    }
 
-          <div className="flex items-center">
-            <div className="w-full rounded-[32px] border border-slate-200 bg-white p-6 shadow-2xl shadow-slate-200/60">
-              <div className="rounded-[28px] bg-slate-950 p-7 text-white">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <div className="text-sm text-slate-400">Performance Snapshot</div>
-                    <div className="mt-1 text-2xl font-bold">고객이 반응하는 구조</div>
-                  </div>
-                  <div className="rounded-full bg-sky-500/20 px-4 py-2 text-sm font-semibold text-sky-300">
-                    WITH SYSTEM
-                  </div>
-                </div>
+    .nav {
+      display: flex;
+      gap: 26px;
+      font-size: 15px;
+      color: #334155;
+      font-weight: 700;
+    }
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {[
-                    ["검색 노출", "플레이스·콘텐츠 구조 개선"],
-                    ["클릭 유도", "신뢰 가는 문구와 이미지 설계"],
-                    ["문의 전환", "CTA 흐름 최적화"],
-                    ["운영 보정", "데이터 기반 반복 개선"],
-                  ].map(([title, desc]) => (
-                    <div key={title} className="rounded-2xl border border-white/10 bg-white/5 p-5">
-                      <div className="text-lg font-bold">{title}</div>
-                      <div className="mt-2 text-sm leading-6 text-slate-300">{desc}</div>
-                    </div>
-                  ))}
-                </div>
+    .nav a:hover { color: #2381d9; }
 
-                <div className="mt-8 rounded-2xl bg-white/5 p-5">
-                  <div className="text-sm text-slate-400">핵심 메시지</div>
-                  <p className="mt-3 text-lg leading-8 text-slate-100">
-                    “광고만 집행하는 것이 아니라, 고객이 실제로 움직이게 만드는 구조를 설계합니다.”
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 15px;
+      transition: 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
 
-      <section className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="grid gap-8 rounded-[32px] border border-slate-200 bg-slate-50 p-8 lg:grid-cols-[1.1fr_0.9fr] lg:p-12">
-          <div>
-            <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">왜 반응이 안 날까</div>
-            <h2 className="mt-4 text-3xl font-black leading-tight text-slate-900 md:text-4xl">
-              많은 업체가 광고보다 먼저
-              <br />
-              구조를 손봐야 합니다.
-            </h2>
-            <p className="mt-5 max-w-2xl text-base leading-8 text-slate-600">
-              제대로 설계되지 않은 플레이스, 약한 상세 문구, 정리되지 않은 리뷰 흐름, 클릭을 못 만드는 이미지와 CTA는
-              광고를 집행해도 성과를 깎아먹습니다.
-            </p>
-          </div>
-          <div className="grid gap-4">
-            {points.map((item) => (
-              <div key={item} className="rounded-2xl bg-white p-5 text-base font-medium text-slate-700 shadow-sm ring-1 ring-slate-200">
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .btn-primary {
+      background: linear-gradient(135deg, #2381d9, #4ea6f0);
+      color: white;
+      box-shadow: 0 12px 30px rgba(35, 129, 217, 0.22);
+    }
 
-      <section id="services" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="max-w-2xl">
-          <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">Services</div>
-          <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 md:text-5xl">
-            매출 전환을 위한 핵심 서비스
-          </h2>
-          <p className="mt-5 text-base leading-8 text-slate-600">
-            단일 채널 운영이 아니라, 고객이 검색부터 문의까지 이어지도록 필요한 핵심 요소를 묶어서 설계합니다.
-          </p>
-        </div>
+    .btn-primary:hover { transform: translateY(-2px); }
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <div key={service.title} className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-              <div className="mb-5 inline-flex rounded-full bg-sky-50 px-4 py-2 text-sm font-semibold text-sky-700">
-                WITH
-              </div>
-              <h3 className="text-xl font-black text-slate-900">{service.title}</h3>
-              <p className="mt-4 text-sm leading-7 text-slate-600">{service.desc}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+    .btn-outline {
+      border-color: #cbd5e1;
+      background: white;
+      color: #0f172a;
+    }
 
-      <section id="process" className="bg-slate-950 py-20 text-white">
-        <div className="mx-auto max-w-7xl px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-300">Process</div>
-            <h2 className="mt-4 text-3xl font-black tracking-tight md:text-5xl">
-              복잡하지 않게,
-              <br />
-              성과 중심으로 진행합니다.
-            </h2>
-          </div>
+    .btn-outline:hover {
+      border-color: #2381d9;
+      color: #2381d9;
+    }
 
-          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-            {process.map((item) => (
-              <div key={item.step} className="rounded-[28px] border border-white/10 bg-white/5 p-7 backdrop-blur">
-                <div className="text-sm font-bold text-sky-300">STEP {item.step}</div>
-                <h3 className="mt-4 text-2xl font-black">{item.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-slate-300">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 72px 0 48px;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(78,166,240,0.20), transparent 28%),
+        radial-gradient(circle at 85% 10%, rgba(35,129,217,0.14), transparent 24%),
+        linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+    }
 
-      <section id="about" className="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
-          <div>
-            <div className="text-sm font-bold uppercase tracking-[0.2em] text-sky-700">About WITH</div>
-            <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-900 md:text-5xl">
-              위드는 결과를 위해
-              <br />
-              필요한 것부터 정리합니다.
-            </h2>
-            <p className="mt-6 text-base leading-8 text-slate-600">
-              마케팅은 채널이 아니라 흐름입니다. 검색에서 보이고, 클릭하고, 신뢰하고, 문의하게 만드는 과정이 모두 연결되어야 합니다.
-              위드는 네이버 중심의 실제 운영 경험을 바탕으로, 눈에 보기 좋은 자료보다 반응이 오는 구조를 더 중요하게 생각합니다.
-            </p>
-          </div>
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: 36px;
+      align-items: center;
+    }
 
-          <div className="grid gap-5">
-            {[
-              "업종과 지역에 맞춘 전략 설계",
-              "전환을 고려한 카피와 이미지 구성",
-              "광고·콘텐츠·플레이스를 따로 보지 않는 통합 운영",
-              "지속적인 분석과 개선 중심 진행",
-            ].map((item) => (
-              <div key={item} className="rounded-2xl border border-slate-200 bg-slate-50 p-6 text-base font-semibold text-slate-800">
-                {item}
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: #e9f5ff;
+      color: #1d6fb9;
+      font-weight: 800;
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
 
-      <section id="contact" className="px-6 pb-24 lg:px-8">
-        <div className="mx-auto max-w-7xl rounded-[36px] bg-gradient-to-r from-sky-700 to-cyan-600 p-10 text-white shadow-2xl shadow-sky-200/60 lg:p-14">
-          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
-            <div>
-              <div className="text-sm font-bold uppercase tracking-[0.2em] text-white/80">Contact</div>
-              <h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">
-                지금 필요한 건
-                <br />
-                더 많은 광고비가 아니라
-                <br />
-                더 잘 설계된 전환 구조입니다.
-              </h2>
-              <p className="mt-6 max-w-2xl text-base leading-8 text-white/90">
-                홈페이지, 플레이스, 블로그, 리뷰, 광고 흐름을 함께 점검하고 싶다면 편하게 문의하세요.
-                현재 운영 상태에 맞는 방향으로 빠르게 안내해드립니다.
-              </p>
-            </div>
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 60px);
+      line-height: 1.15;
+      letter-spacing: -0.04em;
+    }
 
-            <div className="rounded-[28px] bg-white p-7 text-slate-900 shadow-2xl">
-              <div className="text-2xl font-black">상담 문의</div>
-              <p className="mt-3 text-sm leading-7 text-slate-600">
-                아래 버튼과 연락처 영역은 실제 운영 채널에 맞게 교체해서 사용하시면 됩니다.
-              </p>
-              <div className="mt-6 grid gap-4">
-                <a href="mailto:hello@withmarketing.co.kr" className="rounded-2xl bg-slate-950 px-5 py-4 text-center text-sm font-semibold text-white transition hover:opacity-90">
-                  이메일 문의
-                </a>
-                <a href="https://pf.kakao.com/" className="rounded-2xl border border-slate-300 px-5 py-4 text-center text-sm font-semibold text-slate-900 transition hover:border-sky-700 hover:text-sky-700">
-                  카카오톡 채널 연결
-                </a>
-                <a href="tel:010-0000-0000" className="rounded-2xl border border-slate-300 px-5 py-4 text-center text-sm font-semibold text-slate-900 transition hover:border-sky-700 hover:text-sky-700">
-                  전화 문의
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+    .hero h1 span { color: #2381d9; }
+
+    .hero-desc {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #475569;
+      max-width: 680px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .hero-points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .point-card {
+      background: rgba(255,255,255,0.85);
+      border: 1px solid rgba(148,163,184,0.18);
+      border-radius: 22px;
+      padding: 18px;
+      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+    }
+
+    .point-card strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .point-card p {
+      margin: 0;
+      font-size: 14px;
+      color: #64748b;
+    }
+
+    .hero-panel {
+      background: #08111f;
+      color: white;
+      border-radius: 30px;
+      padding: 28px;
+      box-shadow: 0 26px 60px rgba(8, 17, 31, 0.24);
+    }
+
+    .hero-panel h3 {
+      margin: 8px 0 14px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero-panel small { color: #94a3b8; }
+
+    .panel-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .panel-item {
+      border: 1px solid rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.04);
+      padding: 16px;
+      border-radius: 18px;
+    }
+
+    .panel-item strong {
+      display: block;
+      font-size: 16px;
+      margin-bottom: 6px;
+    }
+
+    .panel-item p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 84px 0;
+    }
+
+    .section-title {
+      font-size: 14px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #2381d9;
+      margin-bottom: 12px;
+    }
+
+    .section h2 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 46px);
+      letter-spacing: -0.04em;
+      line-height: 1.2;
+    }
+
+    .section p.lead {
+      max-width: 760px;
+      color: #475569;
+      font-size: 17px;
+      margin-top: 18px;
+    }
+
+    .problem-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 36px;
+      background: #f1f8ff;
+      border: 1px solid #d7ebff;
+      border-radius: 30px;
+      padding: 28px;
+    }
+
+    .problem-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .problem-item {
+      background: white;
+      border-radius: 18px;
+      padding: 18px;
+      border: 1px solid rgba(148,163,184,0.16);
+      font-weight: 700;
+      color: #334155;
+    }
+
+    .problem-highlight {
+      background: linear-gradient(135deg, #2381d9, #5fb1f3);
+      color: white;
+      border-radius: 24px;
+      padding: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 900;
+      text-align: center;
+      letter-spacing: -0.03em;
+      box-shadow: 0 18px 40px rgba(35, 129, 217, 0.22);
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: 26px;
+      padding: 26px 22px;
+      border: 1px solid rgba(148,163,184,0.16);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.05);
+    }
+
+    .service-icon {
+      width: 54px;
+      height: 54px;
+      border-radius: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      background: #ecf7ff;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 21px;
+      letter-spacing: -0.02em;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    .process-wrap {
+      background: #08111f;
+      color: white;
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+      margin-top: 36px;
+    }
+
+    .process-card {
+      border-radius: 24px;
+      padding: 24px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .step {
+      display: inline-flex;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(78,166,240,0.18);
+      color: #7cc4ff;
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 14px;
+    }
+
+    .process-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+    }
+
+    .process-card p {
+      margin: 0;
+      color: #cbd5e1;
+      font-size: 15px;
+    }
+
+    .cta-box {
+      margin-top: 30px;
+      background: linear-gradient(135deg, #2381d9, #4ea6f0);
+      color: white;
+      border-radius: 30px;
+      padding: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      box-shadow: 0 24px 50px rgba(35, 129, 217, 0.20);
+    }
+
+    .cta-box h3 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1.2;
+      letter-spacing: -0.04em;
+    }
+
+    .cta-box p {
+      margin: 0;
+      color: rgba(255,255,255,0.92);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 24px;
+      margin-top: 36px;
+      align-items: stretch;
+    }
+
+    .contact-card,
+    .contact-form {
+      background: white;
+      border-radius: 28px;
+      padding: 28px;
+      border: 1px solid rgba(148,163,184,0.16);
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.05);
+    }
+
+    .contact-card h3,
+    .contact-form h3 {
+      margin: 0 0 12px;
+      font-size: 28px;
+      letter-spacing: -0.03em;
+    }
+
+    .contact-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .contact-item {
+      border-radius: 18px;
+      background: #f8fbff;
+      padding: 16px 18px;
+      border: 1px solid #e2eef9;
+    }
+
+    .contact-item strong {
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .form-group { margin-top: 14px; }
+
+    .input, .textarea {
+      width: 100%;
+      border: 1px solid #dbe7f2;
+      border-radius: 16px;
+      padding: 14px 16px;
+      font-size: 15px;
+      font-family: inherit;
+      outline: none;
+      background: #fbfdff;
+    }
+
+    .input:focus, .textarea:focus {
+      border-color: #2381d9;
+      box-shadow: 0 0 0 4px rgba(35,129,217,0.10);
+    }
+
+    .textarea {
+      min-height: 130px;
+      resize: vertical;
+    }
+
+    footer {
+      padding: 28px 0 48px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .footer-box {
+      border-top: 1px solid rgba(148,163,184,0.16);
+      padding-top: 22px;
+      display: flex;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .floating-kakao {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 99;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      background: #fee500;
+      color: #191600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      box-shadow: 0 16px 32px rgba(15, 23, 42, 0.18);
+    }
+
+    @media (max-width: 1024px) {
+      .hero-grid,
+      .problem-box,
+      .contact-grid,
+      .service-grid,
+      .process-grid,
+      .hero-points {
+        grid-template-columns: 1fr 1fr;
+      }
+      .hero-grid,
+      .contact-grid,
+      .problem-box {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .nav { display: none; }
+      .hero, .section { padding: 64px 0; }
+      .hero-points,
+      .service-grid,
+      .process-grid,
+      .panel-grid {
+        grid-template-columns: 1fr;
+      }
+      .cta-box {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .topbar-inner { padding: 14px 0; }
+      .brand { font-size: 24px; }
+      .btn { width: 100%; }
+      .hero-actions { flex-direction: column; }
+      .cta-box h3 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <div>
+        <div class="brand">WITH</div>
+        <div class="brand-sub">NAVER PERFORMANCE MARKETING</div>
+      </div>
+      <nav class="nav">
+        <a href="#about">소개</a>
+        <a href="#services">서비스</a>
+        <a href="#process">진행방식</a>
+        <a href="#contact">문의하기</a>
+      </nav>
+      <a class="btn btn-primary" href="#contact">🚀 상담 문의</a>
     </div>
-  );
-}
+  </header>
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">✨ 네이버 중심 성과형 마케팅</div>
+        <h1>
+          노출만 만드는 마케팅이 아니라<br>
+          <span>문의와 매출로 이어지는 구조</span>를 만듭니다.
+        </h1>
+        <p class="hero-desc">
+          WITH는 네이버 플레이스, 블로그, 리뷰, 광고를 따로 보지 않습니다.
+          고객이 검색하고, 클릭하고, 신뢰하고, 문의하는 흐름 전체를 전환 중심으로 설계합니다.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#contact">📞 무료 상담 받기</a>
+          <a class="btn btn-outline" href="#services">📌 서비스 보기</a>
+        </div>
+
+        <div class="hero-points">
+          <div class="point-card">
+            <strong>네이버 최적화</strong>
+            <p>플레이스 · 블로그 · 리뷰 흐름 개선</p>
+          </div>
+          <div class="point-card">
+            <strong>전환 중심 설계</strong>
+            <p>방문보다 문의, 문의보다 매출까지 연결</p>
+          </div>
+          <div class="point-card">
+            <strong>업종 맞춤 전략</strong>
+            <p>지역성과 고객 행동을 함께 분석</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel">
+        <small>Performance Focus</small>
+        <h3>보여주기용이 아니라<br>반응이 오는 구조</h3>
+        <div class="panel-grid">
+          <div class="panel-item">
+            <strong>검색 노출</strong>
+            <p>고객이 찾는 키워드부터 정리</p>
+          </div>
+          <div class="panel-item">
+            <strong>클릭 유도</strong>
+            <p>문구와 이미지 구성을 개선</p>
+          </div>
+          <div class="panel-item">
+            <strong>문의 전환</strong>
+            <p>상담 버튼과 흐름을 최적화</p>
+          </div>
+          <div class="panel-item">
+            <strong>운영 보정</strong>
+            <p>반응 데이터를 보고 계속 수정</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <div class="container">
+      <div class="section-title">About</div>
+      <h2>왜 광고를 해도 반응이 약할까요?</h2>
+      <p class="lead">
+        많은 업체가 광고부터 집행하지만, 실제로는 홈페이지 문구, 플레이스 구조, 리뷰 신뢰도, 문의 흐름이 먼저 정리돼야 합니다.
+        구조가 약하면 광고비를 써도 성과가 새어 나갑니다.
+      </p>
+
+      <div class="problem-box">
+        <div class="problem-list">
+          <div class="problem-item">❌ 광고비는 쓰는데 문의가 적은 업체</div>
+          <div class="problem-item">❌ 네이버 노출은 되는데 방문 전환이 약한 매장</div>
+          <div class="problem-item">❌ 플레이스, 블로그, 리뷰가 따로 놀고 있는 경우</div>
+          <div class="problem-item">❌ 무엇부터 손봐야 할지 모르는 사업자</div>
+        </div>
+        <div class="problem-highlight">
+          문제는 광고만이 아니라<br>전체 전환 구조입니다.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="services">
+    <div class="container">
+      <div class="section-title">Services</div>
+      <h2>매출 전환을 위한 핵심 서비스</h2>
+      <p class="lead">
+        WITH는 보이는 것만 꾸미지 않습니다. 고객 반응에 직접 연결되는 핵심 요소를 정리해서 운영합니다.
+      </p>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">🔎</div>
+          <h3>네이버 플레이스 최적화</h3>
+          <p>검색 노출과 클릭, 방문까지 이어지도록 플레이스 구조를 전환 중심으로 설계합니다.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📝</div>
+          <h3>블로그·리뷰 운영</h3>
+          <p>보여주기용이 아니라 실제 신뢰와 유입을 만드는 콘텐츠 흐름을 구성합니다.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📈</div>
+          <h3>광고 세팅 및 관리</h3>
+          <p>무작정 광고비를 태우지 않고, 전환 가능성이 높은 구조부터 먼저 점검합니다.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3>매장 분석 컨설팅</h3>
+          <p>업종, 지역, 경쟁업체, 고객 행동 흐름을 분석해 실질적인 개선 방향을 제안합니다.</p>
+        </div>
+      </div>
+
+      <div class="cta-box">
+        <div>
+          <h3>지금 필요한 건 더 많은 광고비가 아니라<br>더 잘 설계된 마케팅입니다.</h3>
+          <p>검색부터 문의 전환까지 흐름을 점검하고 싶다면 지금 바로 상담해보세요.</p>
+        </div>
+        <a class="btn btn-outline" href="#contact" style="background:white; color:#0f172a; border-color:white;">💬 문의하러 가기</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-wrap" id="process">
+    <div class="container">
+      <div class="section-title" style="color:#7cc4ff;">Process</div>
+      <h2 style="color:white;">복잡하지 않게,<br>성과 중심으로 진행합니다.</h2>
+      <p class="lead" style="color:#cbd5e1;">
+        실제로 필요한 것부터 정리하고, 고객 반응을 보면서 빠르게 보정합니다.
+      </p>
+
+      <div class="process-grid">
+        <div class="process-card">
+          <div class="step">STEP 01</div>
+          <h3>진단</h3>
+          <p>현재 플레이스, 콘텐츠, 광고, 홈페이지 흐름을 빠르게 점검합니다.</p>
+        </div>
+        <div class="process-card">
+          <div class="step">STEP 02</div>
+          <h3>전략 설계</h3>
+          <p>업종과 지역에 맞는 네이버 중심 전환 전략을 설계합니다.</p>
+        </div>
+        <div class="process-card">
+          <div class="step">STEP 03</div>
+          <h3>실행</h3>
+          <p>문구, 이미지, 플레이스, 콘텐츠, 광고까지 핵심 요소를 정리합니다.</p>
+        </div>
+        <div class="process-card">
+          <div class="step">STEP 04</div>
+          <h3>개선</h3>
+          <p>고객 반응 데이터를 보며 문의와 방문 전환 중심으로 계속 보정합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="section-title">Contact</div>
+      <h2>상담 연결만 바꿔도 전환율이 달라집니다.</h2>
+      <p class="lead">
+        아래 연락처는 네 정보로 바꿔서 사용하면 된다. GitHub에서 글자만 수정하면 바로 반영된다.
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>상담 문의</h3>
+          <p style="margin:0; color:#64748b;">아래 정보만 네 실제 정보로 바꾸면 바로 운영할 수 있다.</p>
+
+          <div class="contact-list">
+            <div class="contact-item">
+              <strong>📞 전화 문의</strong>
+              <div>010-5624-2935</div>
+            </div>
+            <div class="contact-item">
+              <strong>💬 카카오톡 채널</strong>
+              <div>https://pf.kakao.com/https://open.kakao.com/o/gWRZyibi</div>
+            </div>
+            <div class="contact-item">
+              <strong>✉️ 이메일</strong>
+              <div>wlstjqwow@naver.com</div>
+            </div>
+            <div class="contact-item">
+              <strong>🏢 회사명</strong>
+              <div>위드 마케팅</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h3>빠른 상담 신청</h3>
+          <p style="margin:0; color:#64748b;">테스트용 화면이다. 실제 문의 폼 연동 전까지는 카카오톡/전화 버튼 위주로 운영하면 된다.</p>
+          <div class="form-group">
+            <input class="input" type="text" placeholder="업체명" />
+          </div>
+          <div class="form-group">
+            <input class="input" type="text" placeholder="연락처" />
+          </div>
+          <div class="form-group">
+            <textarea class="textarea" placeholder="현재 고민이나 문의 내용을 적어주세요."></textarea>
+          </div>
+          <div class="form-group">
+            <a class="btn btn-primary" href="https://pf.kakao.com/여기에채널주소" style="width:100%;">카카오톡으로 바로 문의하기</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-box">
+      <div>© 2026 WITH Marketing. All rights reserved.</div>
+      <div>네이버 플레이스 · 블로그 · 광고 · 전환 설계</div>
+    </div>
+  </footer>
+
+  <a class="floating-kakao" href="https://pf.kakao.com/여기에채널주소" title="카카오톡 문의">💬</a>
+</body>
+</html>
