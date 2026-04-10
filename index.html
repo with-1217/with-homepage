@@ -3,329 +3,474 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WITH | 네이버 성과형 마케팅</title>
-  <meta name="description" content="네이버 플레이스, SEO, CPC, 리뷰, 인플루언서, 콘텐츠 운영까지 전환 중심으로 설계하는 WITH 마케팅" />
+  <title>WITH | NAVER PERFORMANCE MARKETING</title>
+  <meta name="description" content="네이버 플레이스, SEO, CPC, 콘텐츠, 인플루언서까지 전환 중심으로 설계하는 WITH 마케팅" />
   <style>
     :root {
-      --bg: #f5f8fb;
-      --surface: rgba(255,255,255,0.76);
-      --surface-strong: #ffffff;
-      --text: #0f172a;
-      --muted: #5b6474;
-      --line: rgba(15, 23, 42, 0.08);
-      --primary: #18c8be;
-      --primary-deep: #0f9f98;
-      --primary-soft: rgba(24, 200, 190, 0.12);
-      --dark: #09131d;
-      --shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
-      --radius: 26px;
+      --bg: #071019;
+      --bg-2: #0b1623;
+      --surface: rgba(255,255,255,0.06);
+      --surface-2: rgba(255,255,255,0.09);
+      --card: #0f1d2d;
+      --line: rgba(255,255,255,0.1);
+      --text: #eef5ff;
+      --muted: #9aa9bc;
+      --primary: #15d1c4;
+      --primary-2: #54f2c7;
+      --accent: #7c5cff;
+      --yellow: #ffd54a;
+      --shadow: 0 20px 60px rgba(0,0,0,0.28);
+      --radius: 28px;
+      --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(24,200,190,0.10), transparent 24%),
-        radial-gradient(circle at 90% 10%, rgba(24,200,190,0.08), transparent 20%),
-        linear-gradient(180deg, #f6fafc 0%, #f3f7fb 100%);
-      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(21,209,196,0.16), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(124,92,255,0.16), transparent 20%),
+        linear-gradient(180deg, #071019 0%, #08121d 34%, #0a1420 100%);
+      color: var(--text);
       line-height: 1.65;
+      overflow-x: hidden;
     }
-    a { text-decoration: none; color: inherit; }
+    a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
-    .container {
-      width: min(1160px, calc(100% - 32px));
-      margin: 0 auto;
+    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
+
+    .noise::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.045;
+      background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+      background-size: 18px 18px;
+      mix-blend-mode: soft-light;
+      z-index: 0;
     }
 
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 100;
-      backdrop-filter: blur(16px);
-      background: rgba(245, 248, 251, 0.78);
-      border-bottom: 1px solid var(--line);
+      z-index: 200;
+      backdrop-filter: blur(18px);
+      background: rgba(7,16,25,0.64);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
-
     .topbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
       padding: 18px 0;
     }
-
     .brand-wrap { display: flex; flex-direction: column; }
     .brand {
-      font-size: 30px;
-      font-weight: 900;
-      letter-spacing: -0.05em;
-      line-height: 1;
-      color: var(--text);
-    }
-    .brand span {
-      color: var(--primary-deep);
       position: relative;
-      display: inline-block;
+      width: fit-content;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: white;
     }
-    .brand span::after {
+    .brand::after {
       content: "";
       position: absolute;
       left: 0;
       right: 0;
-      bottom: 3px;
-      height: 10px;
-      background: rgba(24,200,190,0.35);
+      bottom: 2px;
+      height: 12px;
+      background: linear-gradient(90deg, rgba(21,209,196,0.85), rgba(84,242,199,0.42));
       z-index: -1;
       border-radius: 999px;
     }
     .brand-sub {
       margin-top: 4px;
-      font-size: 11px;
-      letter-spacing: 0.18em;
-      color: #7a8699;
+      font-size: 10px;
       font-weight: 800;
+      letter-spacing: 0.22em;
+      color: #7f90a5;
     }
-
     .nav {
       display: flex;
-      gap: 26px;
-      font-size: 15px;
-      color: #314155;
+      gap: 24px;
+      color: #b7c4d5;
+      font-size: 14px;
       font-weight: 800;
     }
-    .nav a:hover { color: var(--primary-deep); }
+    .nav a:hover { color: white; }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 8px;
+      gap: 10px;
       padding: 14px 22px;
       border-radius: 999px;
       font-size: 15px;
       font-weight: 900;
-      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+      white-space: nowrap;
       border: 1px solid transparent;
       cursor: pointer;
-      white-space: nowrap;
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
-      color: white;
-      box-shadow: 0 16px 34px rgba(24, 200, 190, 0.24);
+      color: #071019;
+      background: linear-gradient(135deg, var(--yellow), #ffe889);
+      box-shadow: 0 18px 38px rgba(255,213,74,0.18);
     }
     .btn-secondary {
-      background: var(--surface-strong);
-      color: var(--text);
-      border-color: rgba(15,23,42,0.08);
+      color: white;
+      background: linear-gradient(135deg, rgba(21,209,196,0.18), rgba(124,92,255,0.18));
+      border-color: rgba(255,255,255,0.1);
     }
-    .btn-secondary:hover { border-color: var(--primary-deep); color: var(--primary-deep); }
+    .btn-ghost {
+      color: #dce7f5;
+      background: rgba(255,255,255,0.04);
+      border-color: rgba(255,255,255,0.1);
+    }
 
     .hero {
-      padding: 82px 0 52px;
       position: relative;
-      overflow: hidden;
+      padding: 92px 0 54px;
+      z-index: 1;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      left: -120px;
+      top: -60px;
+      width: 360px;
+      height: 360px;
+      background: radial-gradient(circle, rgba(21,209,196,0.18), transparent 64%);
+      filter: blur(10px);
+      pointer-events: none;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      top: -20px;
+      width: 420px;
+      height: 420px;
+      background: radial-gradient(circle, rgba(124,92,255,0.14), transparent 62%);
+      filter: blur(10px);
+      pointer-events: none;
     }
     .hero-grid {
       display: grid;
       grid-template-columns: 1.08fr 0.92fr;
-      gap: 26px;
+      gap: 24px;
       align-items: center;
     }
     .eyebrow {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
       padding: 10px 16px;
       border-radius: 999px;
-      background: var(--primary-soft);
-      color: var(--primary-deep);
+      background: rgba(21,209,196,0.08);
+      border: 1px solid rgba(21,209,196,0.18);
+      color: #8cf4ea;
       font-size: 13px;
       font-weight: 900;
+      letter-spacing: 0.04em;
       margin-bottom: 18px;
-      border: 1px solid rgba(24,200,190,0.16);
     }
     h1 {
       margin: 0;
-      font-size: clamp(38px, 5vw, 66px);
-      line-height: 1.08;
-      letter-spacing: -0.05em;
+      font-size: clamp(40px, 5vw, 76px);
+      line-height: 1.02;
+      letter-spacing: -0.065em;
     }
-    h1 em {
-      font-style: normal;
-      color: var(--primary-deep);
-      position: relative;
-    }
-    h1 em::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 7px;
-      height: 14px;
-      background: rgba(24,200,190,0.22);
-      z-index: -1;
-      border-radius: 999px;
+    h1 .gradient {
+      background: linear-gradient(90deg, #ffffff 0%, #8df4eb 44%, #76b4ff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
     }
     .hero-desc {
       margin-top: 20px;
-      font-size: 18px;
-      color: var(--muted);
       max-width: 700px;
+      color: var(--muted);
+      font-size: 18px;
     }
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 28px;
+      margin-top: 30px;
     }
-    .hero-badges {
+    .hero-strip {
+      margin-top: 32px;
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 14px;
-      margin-top: 34px;
     }
-    .mini-card {
-      background: rgba(255,255,255,0.8);
-      border: 1px solid var(--line);
+    .strip-card {
+      padding: 18px 18px 16px;
       border-radius: 22px;
-      padding: 18px;
-      box-shadow: var(--shadow);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
     }
-    .mini-card strong {
+    .strip-card strong {
       display: block;
-      font-size: 16px;
+      font-size: 15px;
       margin-bottom: 4px;
+      color: white;
     }
-    .mini-card p {
+    .strip-card p {
       margin: 0;
-      font-size: 14px;
-      color: #6b7484;
+      font-size: 13px;
+      color: #92a3b7;
     }
 
     .hero-panel {
-      background: linear-gradient(180deg, #0d1722 0%, #08111a 100%);
-      color: white;
-      border-radius: 32px;
-      padding: 28px;
-      box-shadow: 0 28px 60px rgba(7, 15, 24, 0.24);
       position: relative;
+      border-radius: 32px;
+      padding: 24px;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
+        linear-gradient(145deg, #0d1a29, #09131f);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
       overflow: hidden;
     }
     .hero-panel::before {
       content: "";
       position: absolute;
-      width: 240px;
-      height: 240px;
-      background: radial-gradient(circle, rgba(24,200,190,0.35), transparent 60%);
-      right: -60px;
-      top: -60px;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(21,209,196,0.08), transparent 36%, rgba(124,92,255,0.08));
+      pointer-events: none;
     }
-    .hero-panel small {
-      display: inline-block;
-      color: #8ea0b8;
-      font-size: 12px;
-      letter-spacing: 0.16em;
-      font-weight: 800;
-    }
-    .hero-panel h3 {
-      margin: 10px 0 18px;
-      font-size: 31px;
-      letter-spacing: -0.04em;
-      line-height: 1.16;
-    }
-    .metric-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-    .metric-card {
+    .panel-top {
       position: relative;
       z-index: 1;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.07);
-      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .panel-top small {
+      color: #7f92a7;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+    }
+    .live-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #b8c7d8;
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .live-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--primary-2);
+      box-shadow: 0 0 12px rgba(84,242,199,0.9);
+    }
+    .panel-headline {
+      position: relative;
+      z-index: 1;
+      font-size: 30px;
+      line-height: 1.15;
+      letter-spacing: -0.045em;
+      font-weight: 900;
+      margin: 0 0 18px;
+    }
+    .dashboard-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .metric {
+      border-radius: 22px;
       padding: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
     }
-    .metric-card strong {
-      display: block;
+    .metric .label {
+      font-size: 12px;
+      color: #8fa1b7;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .metric .value {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      color: white;
+      line-height: 1;
+    }
+    .metric .delta {
+      display: inline-flex;
+      margin-top: 10px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(21,209,196,0.12);
+      color: #8cf4ea;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    .metric.large {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 14px;
+      align-items: end;
+    }
+    .bars {
+      height: 170px;
+      display: flex;
+      align-items: end;
+      gap: 16px;
+      padding-top: 10px;
+    }
+    .bar {
+      flex: 1;
+      border-radius: 18px 18px 6px 6px;
+      background: linear-gradient(180deg, rgba(84,242,199,0.24), rgba(21,209,196,0.85));
+      position: relative;
+    }
+    .bar::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -26px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      color: #8ea0b4;
+      font-weight: 800;
+    }
+    .bar::after {
+      content: attr(data-value);
+      position: absolute;
+      top: -50px;
+      left: 50%;
+      transform: translateX(-50%);
       font-size: 15px;
-      margin-bottom: 6px;
+      color: white;
+      font-weight: 900;
+      white-space: nowrap;
     }
-    .metric-card p {
-      margin: 0;
-      color: #d0d9e6;
+    .bar.light {
+      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.28));
+    }
+    .bullet-mini {
+      display: grid;
+      gap: 10px;
+      color: #c8d5e4;
       font-size: 14px;
+      font-weight: 700;
+    }
+    .bullet-mini div {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
     }
 
     .section {
-      padding: 86px 0;
+      position: relative;
+      z-index: 1;
+      padding: 96px 0;
     }
     .section-title {
-      font-size: 13px;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
+      font-size: 12px;
       font-weight: 900;
-      color: var(--primary-deep);
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #8cf4ea;
       margin-bottom: 12px;
     }
     .section h2 {
       margin: 0;
-      font-size: clamp(30px, 4vw, 50px);
-      line-height: 1.14;
-      letter-spacing: -0.05em;
+      font-size: clamp(30px, 4vw, 56px);
+      line-height: 1.08;
+      letter-spacing: -0.055em;
     }
     .lead {
       margin-top: 18px;
-      max-width: 780px;
-      color: var(--muted);
+      max-width: 760px;
       font-size: 17px;
-    }
-
-    .glass {
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,0.8);
-      border-radius: 32px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+      color: var(--muted);
     }
 
     .story-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 22px;
+      gap: 18px;
       margin-top: 34px;
     }
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
     .story-card {
-      padding: 28px;
+      padding: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .story-card::before {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(21,209,196,0.16), transparent 66%);
     }
     .story-card h3 {
+      position: relative;
       margin: 0 0 14px;
       font-size: 28px;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
     .story-card p {
+      position: relative;
       margin: 0;
       color: var(--muted);
-      font-size: 16px;
+      font-size: 15px;
     }
-    .quote-box {
+    .quote-stack {
+      position: relative;
+      margin-top: 20px;
       display: grid;
-      gap: 14px;
-      margin-top: 18px;
+      gap: 12px;
     }
     .quote {
-      padding: 18px 20px;
-      border-radius: 22px;
-      background: white;
-      border: 1px solid rgba(15,23,42,0.06);
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: #eaf4ff;
       font-weight: 800;
-      color: #304153;
+      font-size: 15px;
     }
 
     .service-grid {
@@ -335,23 +480,28 @@
       margin-top: 36px;
     }
     .service-card {
+      position: relative;
       padding: 28px 24px;
       border-radius: 28px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid rgba(15,23,42,0.06);
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
+      border: 1px solid rgba(255,255,255,0.08);
       box-shadow: var(--shadow);
-      position: relative;
       overflow: hidden;
     }
     .service-card::before {
       content: "";
       position: absolute;
-      left: -30px;
-      top: -30px;
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      background: rgba(24,200,190,0.08);
+      inset: 0;
+      background: linear-gradient(145deg, rgba(21,209,196,0.08), transparent 42%, rgba(124,92,255,0.06));
+      pointer-events: none;
+    }
+    .service-top {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
     }
     .service-icon {
       width: 58px;
@@ -361,28 +511,154 @@
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      background: linear-gradient(135deg, rgba(24,200,190,0.16), rgba(24,200,190,0.05));
-      margin-bottom: 16px;
-      position: relative;
-      z-index: 1;
+      background: linear-gradient(135deg, rgba(21,209,196,0.18), rgba(124,92,255,0.18));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+    }
+    .service-no {
+      font-size: 13px;
+      font-weight: 900;
+      color: #8cf4ea;
+      letter-spacing: 0.1em;
     }
     .service-card h3 {
-      margin: 0 0 10px;
-      font-size: 23px;
-      letter-spacing: -0.03em;
       position: relative;
-      z-index: 1;
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.04em;
     }
     .service-card p {
+      position: relative;
       margin: 0;
       color: var(--muted);
       font-size: 15px;
+    }
+    .service-foot {
       position: relative;
-      z-index: 1;
+      margin-top: 18px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      color: #d5e4f5;
+      font-size: 13px;
+      font-weight: 800;
     }
 
-    .feature-ribbon {
-      margin-top: 24px;
+    .results-wrap {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .case-card {
+      position: relative;
+      padding: 24px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
+      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .case-card::before {
+      content: "";
+      position: absolute;
+      width: 180px;
+      height: 180px;
+      right: -80px;
+      top: -80px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(21,209,196,0.14), transparent 65%);
+    }
+    .case-kicker {
+      position: relative;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #8cf4ea;
+    }
+    .case-card h3 {
+      position: relative;
+      margin: 10px 0 10px;
+      font-size: 30px;
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+    }
+    .case-card p {
+      position: relative;
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .case-stats {
+      position: relative;
+      margin-top: 18px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .stat {
+      padding: 14px;
+      border-radius: 18px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .stat .small { font-size: 12px; color: #8ea0b4; font-weight: 800; }
+    .stat .big { font-size: 34px; color: white; font-weight: 900; letter-spacing: -0.05em; line-height: 1; margin-top: 6px; }
+    .stat.primary { background: linear-gradient(135deg, rgba(21,209,196,0.16), rgba(21,209,196,0.24)); }
+
+    .chart-card {
+      position: relative;
+      margin-top: 18px;
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.045);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+    .chart-bars {
+      height: 160px;
+      display: flex;
+      align-items: end;
+      gap: 14px;
+    }
+    .chart-bars .col {
+      flex: 1;
+      border-radius: 16px 16px 6px 6px;
+      position: relative;
+    }
+    .chart-bars .col::after {
+      content: attr(data-value);
+      position: absolute;
+      top: -28px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .chart-bars .col.light { background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.28)); }
+    .chart-bars .col.primary { background: linear-gradient(180deg, rgba(84,242,199,0.35), rgba(21,209,196,0.95)); }
+    .micro-list {
+      margin-top: 16px;
+      display: grid;
+      gap: 8px;
+      color: #d8e5f2;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .micro-list div {
+      padding: 11px 13px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .band {
+      margin-top: 30px;
+      padding: 16px 18px;
+      border-radius: 20px;
+      background: linear-gradient(90deg, rgba(21,209,196,0.12), rgba(124,92,255,0.12));
+      border: 1px solid rgba(255,255,255,0.08);
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
@@ -390,50 +666,37 @@
     .chip {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(24,200,190,0.10);
-      border: 1px solid rgba(24,200,190,0.16);
-      color: var(--primary-deep);
-      font-weight: 900;
+      background: rgba(255,255,255,0.06);
+      color: #eef5ff;
       font-size: 13px;
+      font-weight: 800;
+      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .process-wrap {
-      background: linear-gradient(180deg, #0a121b 0%, #0b1721 100%);
-      color: white;
-      position: relative;
-      overflow: hidden;
-    }
-    .process-wrap::before {
-      content: "";
-      position: absolute;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(24,200,190,0.18), transparent 60%);
-      right: -180px;
-      top: -140px;
+    .process {
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
     .process-grid {
       margin-top: 36px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
-      position: relative;
-      z-index: 1;
     }
     .process-card {
-      border-radius: 26px;
       padding: 24px;
-      background: rgba(255,255,255,0.05);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+      box-shadow: var(--shadow);
     }
     .step {
       display: inline-flex;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(24,200,190,0.15);
-      color: #7eefe8;
+      background: rgba(21,209,196,0.14);
+      color: #8cf4ea;
       font-size: 12px;
       font-weight: 900;
       letter-spacing: 0.08em;
@@ -442,150 +705,126 @@
     .process-card h3 {
       margin: 0 0 10px;
       font-size: 24px;
-      letter-spacing: -0.03em;
+      letter-spacing: -0.04em;
     }
     .process-card p {
       margin: 0;
-      color: #cfdae6;
       font-size: 15px;
-    }
-
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 36px;
-    }
-    .highlight-card {
-      padding: 28px;
-    }
-    .highlight-card h3 {
-      margin: 0 0 12px;
-      font-size: 30px;
-      letter-spacing: -0.04em;
-    }
-    .highlight-card p {
-      margin: 0;
       color: var(--muted);
     }
-    .bullet-list {
-      display: grid;
-      gap: 12px;
-      margin-top: 20px;
-    }
-    .bullet {
-      display: flex;
-      gap: 12px;
-      align-items: flex-start;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(255,255,255,0.72);
-      border: 1px solid rgba(15,23,42,0.06);
-    }
-    .bullet .dot {
-      width: 28px;
-      height: 28px;
-      flex: 0 0 28px;
-      border-radius: 50%;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      background: var(--primary-soft);
-      color: var(--primary-deep);
-      font-weight: 900;
-      font-size: 13px;
-    }
 
-    .cta {
-      margin-top: 34px;
-      padding: 34px;
-      border-radius: 34px;
-      background: linear-gradient(135deg, var(--primary-deep), var(--primary));
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
       gap: 18px;
-      box-shadow: 0 24px 48px rgba(24, 200, 190, 0.24);
-    }
-    .cta h3 {
-      margin: 0 0 8px;
-      font-size: 34px;
-      line-height: 1.15;
-      letter-spacing: -0.05em;
-    }
-    .cta p {
-      margin: 0;
-      color: rgba(255,255,255,0.92);
-    }
-
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 1.04fr 0.96fr;
-      gap: 20px;
       margin-top: 36px;
     }
-    .contact-card,
-    .contact-form {
-      padding: 28px;
+    .contact-card, .form-card {
+      padding: 30px;
+      border-radius: 30px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: var(--shadow);
     }
-    .contact-card h3,
-    .contact-form h3 {
+    .contact-card h3, .form-card h3 {
       margin: 0 0 10px;
-      font-size: 30px;
-      letter-spacing: -0.04em;
+      font-size: 32px;
+      letter-spacing: -0.05em;
     }
-    .contact-desc {
+    .contact-card p, .form-card p {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
     }
     .contact-list {
-      display: grid;
-      gap: 14px;
       margin-top: 22px;
+      display: grid;
+      gap: 12px;
     }
     .contact-item {
-      padding: 18px 20px;
+      padding: 18px 18px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.82);
-      border: 1px solid rgba(15,23,42,0.06);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
     }
     .contact-item strong {
       display: block;
-      margin-bottom: 5px;
-      font-size: 15px;
-    }
-    .contact-item span {
-      color: var(--muted);
+      margin-bottom: 6px;
       font-size: 14px;
+      color: #fff;
     }
-
-    .form-group { margin-top: 14px; }
+    .contact-item span, .contact-item a {
+      color: #d5e4f3;
+      font-size: 14px;
+      word-break: break-all;
+    }
     .input, .textarea {
       width: 100%;
-      border: 1px solid rgba(15,23,42,0.08);
-      background: rgba(255,255,255,0.86);
+      margin-top: 12px;
       border-radius: 18px;
-      padding: 15px 16px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.04);
+      color: white;
       font-size: 15px;
+      padding: 15px 16px;
       font-family: inherit;
       outline: none;
     }
+    .input::placeholder, .textarea::placeholder { color: #8698ad; }
     .input:focus, .textarea:focus {
-      border-color: var(--primary-deep);
-      box-shadow: 0 0 0 4px rgba(24,200,190,0.10);
+      border-color: rgba(84,242,199,0.45);
+      box-shadow: 0 0 0 4px rgba(21,209,196,0.10);
     }
     .textarea { min-height: 134px; resize: vertical; }
 
-    .footer {
-      padding: 30px 0 44px;
-      color: #738094;
+    .cta-banner {
+      margin-top: 26px;
+      padding: 34px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, rgba(8,18,31,0.88), rgba(16,48,67,0.92) 44%, rgba(19,189,181,0.86));
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 26px 56px rgba(0,0,0,0.24);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      overflow: hidden;
+      position: relative;
+    }
+    .cta-banner::before {
+      content: "";
+      position: absolute;
+      right: -100px;
+      top: -100px;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 64%);
+    }
+    .cta-banner h3 {
+      position: relative;
+      margin: 0 0 8px;
+      font-size: 42px;
+      line-height: 1.06;
+      letter-spacing: -0.06em;
+    }
+    .cta-banner p {
+      position: relative;
+      margin: 0;
+      color: rgba(255,255,255,0.86);
+      font-size: 16px;
+    }
+
+    footer {
+      position: relative;
+      z-index: 1;
+      padding: 28px 0 48px;
+      color: #8b9db1;
       font-size: 14px;
     }
     .footer-box {
-      border-top: 1px solid rgba(15,23,42,0.08);
       padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.06);
       display: flex;
       justify-content: space-between;
       gap: 12px;
@@ -596,64 +835,64 @@
       position: fixed;
       right: 18px;
       bottom: 18px;
-      z-index: 100;
-      width: 64px;
-      height: 64px;
+      z-index: 300;
+      width: 66px;
+      height: 66px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 28px;
       background: #fee500;
-      color: #191600;
-      box-shadow: 0 18px 34px rgba(15,23,42,0.16);
+      color: #1a1a1a;
+      font-size: 28px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
     }
 
-    @media (max-width: 1080px) {
-      .case-showcase { grid-template-columns: 1fr; }
+    @media (max-width: 1100px) {
       .hero-grid,
       .story-grid,
-      .highlight-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-      .service-grid { grid-template-columns: 1fr 1fr; }
+      .contact-wrap { grid-template-columns: 1fr; }
+      .service-grid,
+      .results-wrap,
       .process-grid { grid-template-columns: 1fr 1fr; }
-      .hero-badges { grid-template-columns: 1fr 1fr 1fr; }
+      .hero-strip { grid-template-columns: 1fr 1fr 1fr; }
     }
 
     @media (max-width: 760px) {
-      .case-showcase { grid-template-columns: 1fr; }
       .nav { display: none; }
-      .hero, .section { padding: 64px 0; }
+      .hero, .section { padding: 72px 0; }
       .service-grid,
+      .results-wrap,
       .process-grid,
-      .hero-badges,
-      .metric-grid { grid-template-columns: 1fr; }
+      .hero-strip,
+      .dashboard-grid { grid-template-columns: 1fr; }
       .hero-actions,
-      .cta { flex-direction: column; align-items: stretch; }
+      .cta-banner { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
-      .brand { font-size: 26px; }
-      h1 { font-size: 40px; }
-      .cta h3 { font-size: 30px; }
+      .metric.large { grid-template-columns: 1fr; }
+      .topbar-inner { padding: 14px 0; }
+      .brand { font-size: 28px; }
+      .cta-banner h3 { font-size: 32px; }
+      .section h2 { font-size: 34px; }
+      .contact-card h3, .form-card h3 { font-size: 28px; }
     }
   </style>
 </head>
-<body>
+<body class="noise">
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand-wrap">
-        <div class="brand"><span>with</span></div>
+        <div class="brand">with</div>
         <div class="brand-sub">NAVER PERFORMANCE MARKETING</div>
       </div>
       <nav class="nav">
         <a href="#about">회사소개</a>
         <a href="#services">서비스</a>
-        <a href="#results">차별점</a>
+        <a href="#results">성과구조</a>
         <a href="#process">진행방식</a>
         <a href="#contact">문의하기</a>
       </nav>
-      <a class="btn btn-primary" href="#contact">💬 상담 문의</a>
+      <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">🔥 지금 상담 연결</a>
     </div>
   </header>
 
@@ -662,52 +901,64 @@
       <div>
         <div class="eyebrow">함께이기에 가능한 성과형 마케팅</div>
         <h1>
-          광고비만 쓰고 매출 안 오르셨죠?<br>
-          <em>지금 구조 그대로면 계속 손해입니다</em><br>
-          WITH는 매출이 나는 구조로 바꿉니다
+          광고비만 쓰고 끝나는 마케팅 말고<br>
+          <span class="gradient">사장님이 바로 연락하게 만드는</span><br>
+          전환 구조를 설계합니다.
         </h1>
         <p class="hero-desc">
-          플레이스만 잘해도 될 거라 생각했다면 틀렸습니다. SEO, 리뷰, 콘텐츠, 광고가 따로 놀면 절대 매출로 이어지지 않습니다. WITH는 이걸 하나로 묶어서 ‘문의가 들어오는 구조’로 만듭니다.
+          WITH는 네이버 플레이스, SEO, CPC 광고, 블로그, 리뷰, 인플루언서 운영을 따로 보지 않습니다. 고객이 검색하고, 클릭하고, 신뢰하고, 문의하는 흐름 전체를 하나로 설계합니다.
         </p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#contact">🔥 지금 무료로 매출 진단 받기</a>
-          <a class="btn btn-secondary" href="#services">👉 어떻게 바뀌는지 확인하기</a>
+          <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">🚀 지금 무료로 매출 진단 받기</a>
+          <a class="btn btn-secondary" href="#results">📈 성과 구조 보기</a>
+          <a class="btn btn-ghost" href="#services">서비스 전체 보기</a>
         </div>
-        <div class="hero-badges">
-          <div class="mini-card">
+        <div class="hero-strip">
+          <div class="strip-card">
             <strong>플레이스 최적화</strong>
-            <p>네이버 노출부터 클릭까지 구조 개선</p>
+            <p>검색 노출부터 클릭 흐름까지 정리</p>
           </div>
-          <div class="mini-card">
-            <strong>SEO + CPC 운영</strong>
-            <p>검색 기반 유입과 전환 흐름 설계</p>
+          <div class="strip-card">
+            <strong>SEO · CPC 운영</strong>
+            <p>유입만이 아니라 문의 전환 구조까지 설계</p>
           </div>
-          <div class="mini-card">
+          <div class="strip-card">
             <strong>콘텐츠 확장</strong>
-            <p>블로그 · 리뷰 · 인플루언서까지 연결</p>
+            <p>블로그 · 리뷰 · 인플루언서까지 한 번에</p>
           </div>
         </div>
       </div>
 
       <div class="hero-panel">
-        <small>WITH SYSTEM</small>
-        <h3>보여주기용 제안이 아니라<br>실행 가능한 전환 구조</h3>
-        <div class="metric-grid">
-          <div class="metric-card">
-            <strong>네이버 플레이스</strong>
-            <p>매장의 얼굴이 되는 첫 접점 설계</p>
+        <div class="panel-top">
+          <small>WITH LIVE DASHBOARD</small>
+          <div class="live-badge">PERFORMANCE ACTIVE</div>
+        </div>
+        <h2 class="panel-headline">보여주기용 자료가 아니라<br>반응이 오는 구조를 시각화</h2>
+        <div class="dashboard-grid">
+          <div class="metric">
+            <div class="label">상담 문의</div>
+            <div class="value">2.1x</div>
+            <div class="delta">문의 전환 구조 강화</div>
           </div>
-          <div class="metric-card">
-            <strong>리뷰 · 콘텐츠</strong>
-            <p>신뢰를 쌓고 클릭을 유도하는 흐름</p>
+          <div class="metric">
+            <div class="label">플레이스 노출</div>
+            <div class="value">+187%</div>
+            <div class="delta">검색 클릭 흐름 정리</div>
           </div>
-          <div class="metric-card">
-            <strong>검색 광고</strong>
-            <p>유입만이 아니라 문의까지 연결</p>
-          </div>
-          <div class="metric-card">
-            <strong>운영 보정</strong>
-            <p>반응 데이터를 보며 계속 수정</p>
+          <div class="metric large">
+            <div>
+              <div class="label">매출 상승 흐름</div>
+              <div class="bars">
+                <div class="bar light" style="height:54px" data-label="전" data-value="550"></div>
+                <div class="bar" style="height:118px" data-label="후" data-value="1200"></div>
+              </div>
+            </div>
+            <div class="bullet-mini">
+              <div>✔ 플레이스 구조 수정</div>
+              <div>✔ 리뷰 · 콘텐츠 동선 정리</div>
+              <div>✔ CTA 문구와 문의 흐름 강화</div>
+            </div>
           </div>
         </div>
       </div>
@@ -717,24 +968,24 @@
   <section class="section" id="about">
     <div class="container">
       <div class="section-title">About WITH</div>
-      <h2>성공을 함께 만들어가는 동반자</h2>
+      <h2>WITH는 광고 대행이 아니라<br>브랜드 성장 흐름을 설계하는 팀입니다.</h2>
       <p class="lead">
-        WITH는 단순히 광고를 올리는 일이 아니라 브랜드의 가치를 높이고, 비즈니스의 성장 흐름을 함께 설계하는 파트너를 지향합니다.
+        단순히 광고를 집행하는 것이 아니라, 브랜드의 가치를 높이고 비즈니스의 성장 구조를 함께 설계하는 것이 WITH의 역할입니다. 처음부터 끝까지 같이 가는 파트너처럼 움직입니다.
       </p>
 
       <div class="story-grid">
         <div class="glass story-card">
-          <h3>우리의 미션</h3>
+          <h3>성공을 함께 만드는 동반자</h3>
           <p>
-            마케팅은 눈앞의 클릭만 늘리는 일이 아니라, 고객이 브랜드를 신뢰하고 결국 선택하게 만드는 과정입니다. WITH는 Wisdom, Trust, Honesty를 중심에 두고 고객의 성장을 가장 가까이에서 설계합니다.
+            마케팅은 클릭 수만 늘리는 일이 아닙니다. 고객이 브랜드를 신뢰하고 결국 선택하게 만드는 과정입니다. WITH는 Wisdom, Trust, Honesty를 중심에 두고 고객사의 성장을 가장 가까이에서 설계합니다.
           </p>
         </div>
         <div class="glass story-card">
-          <h3>왜 WITH인가</h3>
-          <div class="quote-box">
-            <div class="quote">✔ 광고비만 쓰고 매출 안 나와서 답답한 사장님</div>
-            <div class="quote">✔ 이것저것 다 해봤는데 효과 없었던 사장님</div>
-            <div class="quote">✔ 진짜 ‘문의’랑 ‘매출’이 필요한 사장님</div>
+          <h3>이런 사장님들에게 맞습니다</h3>
+          <div class="quote-stack">
+            <div class="quote">광고비만 계속 쓰는데 매출이 안 올라서 답답한 사장님</div>
+            <div class="quote">플레이스, 블로그, 리뷰, 광고가 따로 놀고 있는 사업자</div>
+            <div class="quote">보여주기보다 실제 문의와 예약이 필요한 대표님</div>
           </div>
         </div>
       </div>
@@ -744,192 +995,206 @@
   <section class="section" id="services">
     <div class="container">
       <div class="section-title">Main Services</div>
-      <h2>제안서의 핵심 서비스를 한눈에 정리했습니다.</h2>
+      
       <p class="lead">
-        제안서에서 강조한 플레이스 컨설팅, SEO/CPC, 탭 상위 노출, 블로그 배포, 체험단, 인플루언서 운영 포인트를 홈페이지용으로 더 깔끔하게 재구성했습니다.
-      </p>
+        
 
       <div class="service-grid">
         <div class="service-card">
-          <div class="service-icon">📍</div>
+          <div class="service-top">
+            <div class="service-icon">📍</div>
+            <div class="service-no">01</div>
+          </div>
           <h3>네이버 플레이스 최적화</h3>
-          <p>플레이스 컨설팅과 세부 최적화를 통해 검색 노출, 클릭 유도, 방문 전환이 일어나도록 구조를 정리합니다.</p>
+          <p>플레이스 노출, 클릭, 방문 전환이 이어지게 매장의 첫 화면 구조를 정리하고 최적화합니다.</p>
+          <div class="service-foot">플레이스 컨설팅 · 순위 관리 · 상세페이지 정리</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🔎</div>
-          <h3>SEO 최적화 · CPC 광고</h3>
-          <p>네이버와 인스타그램 등 검색·노출 구조를 분석하고, 효율적인 키워드 및 광고 세팅으로 유입을 만듭니다.</p>
+          <div class="service-top">
+            <div class="service-icon">🔎</div>
+            <div class="service-no">02</div>
+          </div>
+          <h3>SEO · CPC 광고 세팅</h3>
+          <p>키워드 분석부터 노출 전략, 광고 세팅까지 실제 유입과 문의를 만드는 흐름으로 설계합니다.</p>
+          <div class="service-foot">검색 최적화 · 광고 구조 설계 · 리드 유입 강화</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">📝</div>
+          <div class="service-top">
+            <div class="service-icon">📝</div>
+            <div class="service-no">03</div>
+          </div>
           <h3>블로그 · 리뷰 운영</h3>
-          <p>브랜드 신뢰도를 쌓는 콘텐츠 흐름을 만들고, 블로그와 리뷰가 실제 문의로 이어지게 설계합니다.</p>
+          <p>보여주기용 게시물보다 고객이 신뢰하고 문의하게 만드는 콘텐츠와 리뷰 흐름을 만듭니다.</p>
+          <div class="service-foot">리뷰 관리 · 블로그 배포 · 신뢰도 강화</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">📲</div>
-          <h3>탭 상위 노출 전략</h3>
-          <p>자연스러운 반복 노출과 유입 동선을 고려해 플레이스 탭과 관련 검색 영역에서 가시성을 끌어올립니다.</p>
+          <div class="service-top">
+            <div class="service-icon">📲</div>
+            <div class="service-no">04</div>
+          </div>
+          <h3>탭 상위노출 전략</h3>
+          <p>플레이스와 검색 영역의 반복 노출 구조를 설계해 고객 머릿속에 계속 보이게 만듭니다.</p>
+          <div class="service-foot">탭 상위노출 · 반복 노출 · 클릭 유도 강화</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">🎥</div>
-          <h3>체험단 · 클립 · 배포</h3>
-          <p>블로그 체험단, 네이버 클립, 콘텐츠 배포 운영을 통해 지역 기반 화제성과 도달 범위를 넓힙니다.</p>
+          <div class="service-top">
+            <div class="service-icon">🎬</div>
+            <div class="service-no">05</div>
+          </div>
+          <h3>네이버 클립 · 체험단</h3>
+          <p>짧고 강한 콘텐츠로 주목도를 높이고, 체험 기반 후기 흐름으로 지역 화제성을 키웁니다.</p>
+          <div class="service-foot">클립 · 숏폼 · 체험 후기 · 지역 바이럴</div>
         </div>
         <div class="service-card">
-          <div class="service-icon">✨</div>
+          <div class="service-top">
+            <div class="service-icon">✨</div>
+            <div class="service-no">06</div>
+          </div>
           <h3>인플루언서 · PPL 연계</h3>
-          <p>인스타그램 인플루언서 및 크리에이터 협업을 통해 매장 분위기와 브랜드 인지도를 자연스럽게 높입니다.</p>
+          <p>브랜드 이미지와 맞는 인플루언서와 연결해 매장 분위기와 인지도를 자연스럽게 높입니다.</p>
+          <div class="service-foot">인스타그램 · 크리에이터 · 체험형 홍보</div>
         </div>
       </div>
 
-      <div class="feature-ribbon">
+      <div class="band">
         <div class="chip">네이버 플레이스 컨설팅</div>
-        <div class="chip">키워드 분석 및 노출 확장</div>
-        <div class="chip">리뷰 · 블로그 배포 관리</div>
-        <div class="chip">인스타그램 인플루언서</div>
         <div class="chip">SEO 최적화 및 광고 세팅</div>
+        <div class="chip">키워드 분석 및 노출 확장</div>
+        <div class="chip">블로그 배포 및 리뷰 관리</div>
+        <div class="chip">인스타그램 인플루언서</div>
+        <div class="chip">네이버 클립 운영</div>
       </div>
     </div>
   </section>
 
   <section class="section" id="results">
     <div class="container">
-      <div class="section-title">Premium Impact</div>
-      <h2>더 화려하게, 더 전문적으로 보이게<br>성과 섹션까지 강화했습니다.</h2>
+      <div class="section-title">Performance Design</div>
+     
       <p class="lead">
         
-      </p>
 
-      <div class="highlight-grid" style="margin-bottom:20px;">
-        <div class="glass highlight-card" style="background:linear-gradient(135deg, rgba(24,200,190,0.16), rgba(255,255,255,0.9)); border:1px solid rgba(24,200,190,0.18);">
-          <h3>끌리는 첫인상</h3>
-          <div class="bullet-list">
-            <div class="bullet"><div class="dot">1</div><div>브랜드 민트 컬러에 딥네이비, 유리질 카드, 그라데이션을 섞어 더 고급스럽게 정리</div></div>
-            <div class="bullet"><div class="dot">2</div><div>큰 제목과 강한 CTA를 전면 배치해 첫 화면에서 전문성이 바로 보이게 설계</div></div>
-            <div class="bullet"><div class="dot">3</div><div>가벼워 보이지 않도록 이모티콘은 최소화하고 시각 포인트만 살림</div></div>
-          </div>
-        </div>
-        <div class="glass highlight-card" style="background:linear-gradient(135deg, rgba(9,19,29,0.96), rgba(15,159,152,0.92)); color:white; border:1px solid rgba(255,255,255,0.08); box-shadow:0 24px 48px rgba(9,19,29,0.18);">
-          <h3 style="color:white;">전환 중심 구조</h3>
-          <div class="bullet-list">
-            <div class="bullet" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.08);"><div class="dot">1</div><div style="color:#eef7fb;">플레이스 → 콘텐츠 → 광고 → 문의 흐름으로 자연스럽게 이어지는 랜딩 구조</div></div>
-            <div class="bullet" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.08);"><div class="dot">2</div><div style="color:#eef7fb;">상단, 중간, 하단 CTA를 반복 배치해 바로 연락하게 만드는 설계</div></div>
-            <div class="bullet" style="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.08);"><div class="dot">3</div><div style="color:#eef7fb;">모바일에서도 보기 편한 카드형 레이아웃으로 신뢰감 강화</div></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-showcase" style="margin-top:30px; display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
-        <div class="glass" style="padding:24px; border-radius:30px; position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(239,251,250,0.92));">
-          <div style="position:absolute; right:-18px; top:-18px; width:90px; height:90px; border-radius:50%; background:rgba(24,200,190,0.10);"></div>
-          <div style="font-size:13px; font-weight:900; color:var(--primary-deep); letter-spacing:0.1em; text-transform:uppercase;">Case 01</div>
-          <h3 style="margin:10px 0 8px; font-size:30px; letter-spacing:-0.04em;">매출 2배 상승</h3>
-          <p style="margin:0; color:var(--muted); font-size:15px;">광고만 돌리던 구조를 플레이스·콘텐츠·리뷰 중심으로 재설계한 결과</p>
-          <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:end;">
-           
+      <div class="results-wrap">
+        <div class="case-card">
+          <div class="case-kicker">Case 01</div>
+          <h3>매출 상승 구조 사례</h3>
+          <p>플레이스와 리뷰, 광고 흐름을 하나로 묶어 단기 유입이 아닌 실제 예약 흐름을 강화한 구조.</p>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="small">기존 구조</div>
+              <div class="big">550</div>
             </div>
-            <div style="padding:14px; border-radius:20px; background:linear-gradient(135deg, var(--primary-deep), var(--primary)); color:white; box-shadow:0 18px 30px rgba(24,200,190,0.20);">
-              <div style="font-size:13px; color:rgba(255,255,255,0.86); font-weight:800;"></div>
-              <div style="font-size:34px; font-weight:900; letter-spacing:-0.05em; margin-top:4px;">1200</div>
+            <div class="stat primary">
+              <div class="small">개선 구조</div>
+              <div class="big">1200</div>
             </div>
           </div>
-          <div style="margin-top:18px; height:170px; border-radius:24px; background:linear-gradient(180deg, #f7fbfd, #edf7f7); padding:18px; border:1px solid rgba(15,23,42,0.05); display:flex; align-items:end; gap:18px;">
-            <div style="width:30%; background:linear-gradient(180deg, rgba(24,200,190,0.25), rgba(24,200,190,0.38)); height:52px; border-radius:16px 16px 0 0;"></div>
-            <div style="width:30%; background:linear-gradient(180deg, rgba(24,200,190,0.55), rgba(15,159,152,0.92)); height:116px; border-radius:16px 16px 0 0;"></div>
-            <div style="width:40%; display:flex; flex-direction:column; gap:10px; font-size:13px; color:#6b7484; font-weight:800;">
-              <div>✔ 플레이스 구조 개선</div>
-              <div>✔ 리뷰 흐름 정리</div>
-              <div>✔ 광고 전환 동선 수정</div>
+          <div class="chart-card">
+            <div class="chart-bars">
+              <div class="col light" style="height:58px" data-value="550"></div>
+              <div class="col primary" style="height:128px" data-value="1200"></div>
+            </div>
+            <div class="micro-list">
+              <div>플레이스 구조 수정</div>
+              <div>리뷰 흐름 개선</div>
+              <div>상담 문구 강화</div>
             </div>
           </div>
         </div>
 
-        <div class="glass" style="padding:24px; border-radius:30px; position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(244,250,255,0.94));">
-          <div style="position:absolute; right:-18px; top:-18px; width:90px; height:90px; border-radius:50%; background:rgba(24,200,190,0.08);"></div>
-          <div style="font-size:13px; font-weight:900; color:var(--primary-deep); letter-spacing:0.1em; text-transform:uppercase;">Case 02</div>
-          <h3 style="margin:10px 0 8px; font-size:30px; letter-spacing:-0.04em;">방문자 증가</h3>
-          <p style="margin:0; color:var(--muted); font-size:15px;">검색 노출만 올린 것이 아니라 실제 클릭과 방문까지 늘린 구조 개선 사례</p>
-          <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:end;">
-            
+        <div class="case-card">
+          <div class="case-kicker">Case 02</div>
+          <h3>방문 전환 확대 사례</h3>
+          <p>상위 노출만이 아니라 클릭 후 이탈을 줄이도록 첫 화면과 콘텐츠 신뢰도를 재정비한 사례.</p>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="small">기존 구조</div>
+              <div class="big">90</div>
             </div>
-            <div style="padding:14px; border-radius:20px; background:linear-gradient(135deg, #152433, #1bc9bf); color:white; box-shadow:0 18px 30px rgba(9,19,29,0.18);">
-              <div style="font-size:13px; color:rgba(255,255,255,0.86); font-weight:800;"></div>
-              <div style="font-size:34px; font-weight:900; letter-spacing:-0.05em; margin-top:4px;">270</div>
+            <div class="stat primary">
+              <div class="small">개선 구조</div>
+              <div class="big">270</div>
             </div>
           </div>
-          <div style="margin-top:18px; border-radius:24px; background:white; border:1px solid rgba(15,23,42,0.06); padding:18px; box-shadow:inset 0 1px 0 rgba(255,255,255,0.9);">
-            <div style="display:grid; gap:12px;">
-              <div style="height:14px; width:70%; background:#eef4f8; border-radius:999px;"></div>
-              <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
-                <div style="height:84px; border-radius:18px; background:linear-gradient(180deg,#f2f8fb,#e8f1f7);"></div>
-                <div style="height:84px; border-radius:18px; background:linear-gradient(180deg,#f2f8fb,#e8f1f7);"></div>
-                <div style="height:84px; border-radius:18px; background:linear-gradient(180deg,#dff6f4,#c8eeea); border:1px solid rgba(24,200,190,0.16);"></div>
-              </div>
-              <div style="display:flex; justify-content:space-between; font-size:13px; color:#6b7484; font-weight:800;">
-                <span>조회 증가</span><span>예약 문의 증가</span><span>클릭 상승</span>
-              </div>
+          <div class="chart-card">
+            <div class="chart-bars">
+              <div class="col light" style="height:52px" data-value="90"></div>
+              <div class="col primary" style="height:136px" data-value="270"></div>
+            </div>
+            <div class="micro-list">
+              <div>플레이스 노출 강화</div>
+              <div>콘텐츠 클릭률 상승</div>
+              <div>브랜드 신뢰도 개선</div>
             </div>
           </div>
         </div>
 
-        <div class="glass" style="padding:24px; border-radius:30px; position:relative; overflow:hidden; background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(249,249,252,0.96));">
-          <div style="position:absolute; right:-18px; top:-18px; width:90px; height:90px; border-radius:50%; background:rgba(24,200,190,0.08);"></div>
-          <div style="font-size:13px; font-weight:900; color:var(--primary-deep); letter-spacing:0.1em; text-transform:uppercase;">Case 03</div>
-          <h3 style="margin:10px 0 8px; font-size:30px; letter-spacing:-0.04em;">문의 2배 증가</h3>
-          <p style="margin:0; color:var(--muted); font-size:15px;">상담 버튼과 메시지 구조를 바꿔 실제 연락 수를 끌어올린 전환 사례</p>
-          <div style="margin-top:20px; display:grid; grid-template-columns:1fr 1fr; gap:12px; align-items:end;">
-           
+        <div class="case-card">
+          <div class="case-kicker">Case 03</div>
+          <h3>상담 전환 강화 사례</h3>
+          <p>버튼 문구와 CTA 구조, 연락 동선을 바꿔 실제 메시지·전화 전환을 끌어올린 사례.</p>
+          <div class="case-stats">
+            <div class="stat">
+              <div class="small">기존 구조</div>
+              <div class="big">30</div>
             </div>
-            <div style="padding:14px; border-radius:20px; background:linear-gradient(135deg, #0e1b28, #13bdb5); color:white; box-shadow:0 18px 30px rgba(9,19,29,0.18);">
-              <div style="font-size:13px; color:rgba(255,255,255,0.86); font-weight:800;"></div>
-              <div style="font-size:34px; font-weight:900; letter-spacing:-0.05em; margin-top:4px;">60</div>
+            <div class="stat primary">
+              <div class="small">개선 구조</div>
+              <div class="big">60</div>
             </div>
           </div>
-          <div style="margin-top:18px; border-radius:24px; background:linear-gradient(180deg, #ffffff, #f5f8fb); border:1px solid rgba(15,23,42,0.06); padding:16px; display:grid; gap:12px;">
-            <div style="height:56px; border-radius:18px; background:#f6f8fb; border:1px solid rgba(15,23,42,0.05);"></div>
-            <div style="height:56px; border-radius:18px; background:#f6f8fb; border:1px solid rgba(15,23,42,0.05);"></div>
-            <div style="padding:14px 16px; border-radius:18px; background:linear-gradient(135deg, rgba(24,200,190,0.14), rgba(24,200,190,0.04)); font-size:14px; font-weight:900; color:var(--primary-deep);">“상담 버튼 하나만 바꿔도 연락이 달라집니다.”</div>
+          <div class="chart-card">
+            <div class="chart-bars">
+              <div class="col light" style="height:58px" data-value="30"></div>
+              <div class="col primary" style="height:116px" data-value="60"></div>
+            </div>
+            <div class="micro-list">
+              <div>상담 버튼 재배치</div>
+              <div>카카오 연결 강화</div>
+              <div>즉시 문의 CTA 삽입</div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="cta" style="margin-top:28px;">
+      <div class="cta-banner">
         <div>
           <h3>계속 광고비만 쓰실 건가요?<br>아니면 매출 구조로 바꾸실 건가요?</h3>
-          
+          <p>사장님이 반응하는 건 예쁜 설명이 아니라, 지금 바로 연락하고 싶어지는 구조입니다.</p>
         </div>
-        <a class="btn btn-secondary" href="#contact" style="background:#ffd84a; border-color:#ffd84a; color:#101318; font-weight:900;">지금 무료로 매출 진단 받기 →</a>
+        <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">지금 무료로 매출 진단 받기 →</a>
       </div>
     </div>
   </section>
 
-  <section class="section process-wrap" id="process">
+  <section class="section process" id="process">
     <div class="container">
-      <div class="section-title" style="color:#7eefe8;">Process</div>
-      <h2 style="color:white;">복잡하게 설명하지 않고,<br>성과가 나게 실행합니다.</h2>
-      <p class="lead" style="color:#cfdae6;">
-       
+      <div class="section-title">Process</div>
+      <h2>복잡하게 설명하지 않고<br>성과가 나오게 진행합니다.</h2>
+      <p class="lead">
+        신규 업체든 기존 운영 업체든, 현재 구조를 빠르게 분석하고 필요한 것부터 정리합니다. 불필요하게 길게 끌지 않는 게 WITH 방식입니다.
+      </p>
 
       <div class="process-grid">
         <div class="process-card">
           <div class="step">STEP 01</div>
           <h3>진단</h3>
-          <p>업체 현재 상태, 지역, 키워드, 경쟁 매장, 플레이스 구성을 빠르게 분석합니다.</p>
+          <p>업종, 지역, 키워드, 경쟁 매장, 현재 노출 구조를 먼저 점검합니다.</p>
         </div>
         <div class="process-card">
           <div class="step">STEP 02</div>
           <h3>설계</h3>
-          <p>업종에 맞는 네이버 중심 전략과 콘텐츠 흐름을 설계합니다.</p>
+          <p>플레이스, 리뷰, 콘텐츠, 광고를 따로 보지 않고 한 흐름으로 전략을 짭니다.</p>
         </div>
         <div class="process-card">
           <div class="step">STEP 03</div>
           <h3>실행</h3>
-          <p>플레이스, 리뷰, 블로그, 클립, 광고, 인플루언서까지 필요한 항목을 실행합니다.</p>
+          <p>콘텐츠, 노출, 광고, 클립, 인플루언서 등 필요한 요소를 실제로 집행합니다.</p>
         </div>
         <div class="process-card">
           <div class="step">STEP 04</div>
           <h3>보정</h3>
-          <p>반응을 보고 키워드, 노출, 콘텐츠 방향, 문의 동선을 계속 개선합니다.</p>
+          <p>반응을 보면서 문의 문구, 노출 구조, 클릭 동선을 계속 수정합니다.</p>
         </div>
       </div>
     </div>
@@ -938,26 +1203,26 @@
   <section class="section" id="contact">
     <div class="container">
       <div class="section-title">Contact</div>
-      
+  
       <p class="lead">
        
 
-      <div class="contact-grid">
-        <div class="glass contact-card">
+      <div class="contact-wrap">
+        <div class="contact-card">
           <h3>상담 문의</h3>
-          <p class="contact-desc">
+          
           <div class="contact-list">
             <div class="contact-item">
               <strong>📞 전화 문의</strong>
-              <span>010-5624-2935</span>
+              <span><a href="tel:01056242935">010-5624-2935</a></span>
             </div>
             <div class="contact-item">
               <strong>💬 카카오톡 채널</strong>
-              <span>https://invite.kakao.com/tc/sE84BY47am</span>
+              <span><a href="https://invite.kakao.com/tc/sE84BY47am">https://invite.kakao.com/tc/sE84BY47am</a></span>
             </div>
             <div class="contact-item">
               <strong>✉️ 이메일</strong>
-              <span>wlstjqwow@naver.com</span>
+              <span><a href="mailto:wlstjqwow@naver.com">wlstjqwow@naver.com</a></span>
             </div>
             <div class="contact-item">
               <strong>🏢 회사명</strong>
@@ -970,37 +1235,21 @@
           </div>
         </div>
 
-        <div class="glass contact-form">
+        <div class="form-card">
           <h3>빠른 상담 신청</h3>
-          <p class="contact-desc">
-          <div class="form-group">
-            <input class="input" type="text" placeholder="업체명" />
-          </div>
-          <div class="form-group">
-            <input class="input" type="text" placeholder="연락처" />
-          </div>
-          <div class="form-group">
-            <textarea class="textarea" placeholder="현재 고민이나 원하는 마케팅 방향을 적어주세요."></textarea>
-          </div>
-          <div class="form-group">
-            <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am" style="width:100%;">카카오톡으로 바로 문의하기</a>
-          </div>
+          <p>실제 폼 연동 전까지는 카카오톡 연결 버튼 중심으로 운영해도 충분합니다.</p>
+          <input class="input" type="text" placeholder="업체명" />
+          <input class="input" type="text" placeholder="연락처" />
+          <textarea class="textarea" placeholder="현재 고민이나 원하는 마케팅 방향을 적어주세요."></textarea>
+          <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am" style="width:100%; margin-top:14px;">💬 카카오톡으로 바로 문의하기</a>
         </div>
-      </div>
-
-      <div class="cta">
-        <div>
-          <h3>지금처럼 계속 광고비만 쓰실 건가요?<br>아니면 진짜 매출 구조로 바꾸실 건가요?</h3>
-          <p>네이버 중심 성과형 구조가 필요하다면 지금 바로 상담부터 연결하면 됩니다.</p>
-        </div>
-        <a class="btn btn-secondary" href="https://invite.kakao.com/tc/sE84BY47am" style="background:white; border-color:white;">🔥 지금 바로 상담 연결</a>
       </div>
     </div>
   </section>
 
-  <footer class="footer">
+  <footer>
     <div class="container footer-box">
-      <div>© 2026 WITH Marketing. All rights reserved.</div>
+      <div>© 2026 WITH COMPANY. All rights reserved.</div>
       <div>네이버 플레이스 · SEO · CPC · 리뷰 · 인플루언서 · 콘텐츠 운영</div>
     </div>
   </footer>
