@@ -4,23 +4,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WITH | NAVER PERFORMANCE MARKETING</title>
-  <meta name="description" content="네이버 플레이스, SEO, CPC, 콘텐츠, 인플루언서까지 전환 중심으로 설계하는 WITH 마케팅" />
   <style>
     :root {
-      --bg: #071019;
-      --bg-2: #0b1623;
-      --surface: rgba(255,255,255,0.06);
-      --surface-2: rgba(255,255,255,0.09);
-      --card: #0f1d2d;
-      --line: rgba(255,255,255,0.1);
-      --text: #eef5ff;
-      --muted: #9aa9bc;
-      --primary: #15d1c4;
-      --primary-2: #54f2c7;
-      --accent: #7c5cff;
-      --yellow: #ffd54a;
-      --shadow: 0 20px 60px rgba(0,0,0,0.28);
-      --radius: 28px;
+      --bg: #07111b;
+      --bg2: #0b1624;
+      --panel: rgba(255,255,255,0.06);
+      --panel2: rgba(255,255,255,0.09);
+      --line: rgba(255,255,255,0.10);
+      --text: #eef6ff;
+      --muted: #99a9bc;
+      --mint: #14d2c5;
+      --mint2: #7cf3d6;
+      --violet: #7b61ff;
+      --yellow: #ffd84a;
+      --shadow: 0 24px 60px rgba(0,0,0,0.28);
+      --radius: 30px;
       --max: 1180px;
     }
 
@@ -30,46 +28,44 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
       background:
-        radial-gradient(circle at 10% 0%, rgba(21,209,196,0.16), transparent 22%),
-        radial-gradient(circle at 90% 10%, rgba(124,92,255,0.16), transparent 20%),
-        linear-gradient(180deg, #071019 0%, #08121d 34%, #0a1420 100%);
+        radial-gradient(circle at 10% 0%, rgba(20,210,197,0.14), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(123,97,255,0.14), transparent 20%),
+        linear-gradient(180deg, #07111b 0%, #09131e 100%);
       color: var(--text);
-      line-height: 1.65;
       overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
-    img { display: block; max-width: 100%; }
 
-    .container { width: min(var(--max), calc(100% - 32px)); margin: 0 auto; }
-
-    .noise::before {
+    .bg-noise::before {
       content: "";
       position: fixed;
       inset: 0;
       pointer-events: none;
-      opacity: 0.045;
-      background-image: radial-gradient(circle, #fff 1px, transparent 1px);
+      background-image: radial-gradient(circle, rgba(255,255,255,0.9) 0.8px, transparent 0.8px);
       background-size: 18px 18px;
-      mix-blend-mode: soft-light;
+      opacity: 0.035;
       z-index: 0;
     }
 
     .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 200;
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 300;
       backdrop-filter: blur(18px);
-      background: rgba(7,16,25,0.64);
+      background: rgba(7,17,27,0.58);
       border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
     }
     .topbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 18px;
-      padding: 18px 0;
+      padding: 16px 0;
     }
-    .brand-wrap { display: flex; flex-direction: column; }
     .brand {
       position: relative;
       width: fit-content;
@@ -77,7 +73,7 @@
       font-weight: 900;
       letter-spacing: -0.06em;
       line-height: 1;
-      color: white;
+      color: #fff;
     }
     .brand::after {
       content: "";
@@ -86,26 +82,26 @@
       right: 0;
       bottom: 2px;
       height: 12px;
-      background: linear-gradient(90deg, rgba(21,209,196,0.85), rgba(84,242,199,0.42));
-      z-index: -1;
       border-radius: 999px;
+      background: linear-gradient(90deg, rgba(20,210,197,0.9), rgba(124,243,214,0.35));
+      z-index: -1;
     }
     .brand-sub {
-      margin-top: 4px;
+      margin-top: 3px;
       font-size: 10px;
       font-weight: 800;
       letter-spacing: 0.22em;
-      color: #7f90a5;
+      color: #7f90a7;
     }
+    .brand-wrap { display: flex; flex-direction: column; }
     .nav {
       display: flex;
-      gap: 24px;
-      color: #b7c4d5;
+      gap: 22px;
+      color: #b2c0d0;
       font-size: 14px;
       font-weight: 800;
     }
-    .nav a:hover { color: white; }
-
+    .nav a:hover { color: #fff; }
     .btn {
       display: inline-flex;
       align-items: center;
@@ -115,253 +111,231 @@
       border-radius: 999px;
       font-size: 15px;
       font-weight: 900;
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-      white-space: nowrap;
+      transition: transform .2s ease, box-shadow .2s ease;
       border: 1px solid transparent;
-      cursor: pointer;
+      white-space: nowrap;
     }
     .btn:hover { transform: translateY(-2px); }
     .btn-primary {
-      color: #071019;
-      background: linear-gradient(135deg, var(--yellow), #ffe889);
-      box-shadow: 0 18px 38px rgba(255,213,74,0.18);
+      background: linear-gradient(135deg, var(--yellow), #ffe78c);
+      color: #07111b;
+      box-shadow: 0 16px 36px rgba(255,216,74,0.18);
     }
-    .btn-secondary {
-      color: white;
-      background: linear-gradient(135deg, rgba(21,209,196,0.18), rgba(124,92,255,0.18));
-      border-color: rgba(255,255,255,0.1);
-    }
-    .btn-ghost {
-      color: #dce7f5;
-      background: rgba(255,255,255,0.04);
-      border-color: rgba(255,255,255,0.1);
+    .btn-dark {
+      background: rgba(255,255,255,0.05);
+      border-color: rgba(255,255,255,0.08);
+      color: #fff;
     }
 
-    .hero {
+    .deck {
       position: relative;
-      padding: 92px 0 54px;
       z-index: 1;
+      scroll-snap-type: y mandatory;
     }
-    .hero::before {
-      content: "";
-      position: absolute;
-      left: -120px;
-      top: -60px;
-      width: 360px;
-      height: 360px;
-      background: radial-gradient(circle, rgba(21,209,196,0.18), transparent 64%);
-      filter: blur(10px);
-      pointer-events: none;
-    }
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -120px;
-      top: -20px;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, rgba(124,92,255,0.14), transparent 62%);
-      filter: blur(10px);
-      pointer-events: none;
-    }
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.08fr 0.92fr;
-      gap: 24px;
+    .slide {
+      min-height: 100vh;
+      display: flex;
       align-items: center;
+      scroll-snap-align: start;
+      padding: 110px 0 42px;
+      position: relative;
     }
+    .slide::before {
+      content: attr(data-step);
+      position: absolute;
+      right: 4%;
+      bottom: 6%;
+      font-size: clamp(90px, 15vw, 220px);
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      color: rgba(255,255,255,0.03);
+      pointer-events: none;
+      line-height: 1;
+    }
+
+    .hero-grid,
+    .split-grid,
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 18px;
+      align-items: center;
+      width: 100%;
+    }
+
     .eyebrow {
       display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 10px 16px;
       border-radius: 999px;
-      background: rgba(21,209,196,0.08);
-      border: 1px solid rgba(21,209,196,0.18);
-      color: #8cf4ea;
+      background: rgba(20,210,197,0.08);
+      border: 1px solid rgba(20,210,197,0.18);
+      color: #8af4ea;
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 0.04em;
       margin-bottom: 18px;
     }
-    h1 {
+    h1, h2 {
       margin: 0;
-      font-size: clamp(40px, 5vw, 76px);
       line-height: 1.02;
       letter-spacing: -0.065em;
     }
-    h1 .gradient {
-      background: linear-gradient(90deg, #ffffff 0%, #8df4eb 44%, #76b4ff 100%);
+    h1 { font-size: clamp(42px, 6vw, 92px); }
+    h2 { font-size: clamp(34px, 4.6vw, 68px); }
+    .gradient {
+      background: linear-gradient(90deg, #ffffff 0%, #8cf4ea 44%, #76b2ff 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
-    .hero-desc {
+    .lead {
       margin-top: 20px;
-      max-width: 700px;
       color: var(--muted);
       font-size: 18px;
+      max-width: 720px;
+      line-height: 1.7;
     }
-    .hero-actions {
+    .actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin-top: 30px;
+      margin-top: 28px;
     }
-    .hero-strip {
-      margin-top: 32px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
-    .strip-card {
-      padding: 18px 18px 16px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.04);
+
+    .glass {
+      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
-    }
-    .strip-card strong {
-      display: block;
-      font-size: 15px;
-      margin-bottom: 4px;
-      color: white;
-    }
-    .strip-card p {
-      margin: 0;
-      font-size: 13px;
-      color: #92a3b7;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
 
     .hero-panel {
-      position: relative;
-      border-radius: 32px;
       padding: 24px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03)),
-        linear-gradient(145deg, #0d1a29, #09131f);
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
       overflow: hidden;
+      position: relative;
+      min-height: 560px;
     }
     .hero-panel::before {
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(21,209,196,0.08), transparent 36%, rgba(124,92,255,0.08));
+      background: linear-gradient(145deg, rgba(20,210,197,0.10), transparent 40%, rgba(123,97,255,0.10));
       pointer-events: none;
     }
-    .panel-top {
+    .hero-top {
       position: relative;
       z-index: 1;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
-    .panel-top small {
-      color: #7f92a7;
+    .hero-top small {
+      color: #7f90a7;
       font-size: 11px;
       font-weight: 800;
       letter-spacing: 0.18em;
     }
-    .live-badge {
+    .live {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #b8c7d8;
+      color: #cad8e7;
       font-size: 12px;
-      font-weight: 800;
+      font-weight: 900;
     }
-    .live-badge::before {
+    .live::before {
       content: "";
       width: 8px;
       height: 8px;
       border-radius: 50%;
-      background: var(--primary-2);
-      box-shadow: 0 0 12px rgba(84,242,199,0.9);
+      background: var(--mint2);
+      box-shadow: 0 0 12px rgba(124,243,214,0.9);
     }
-    .panel-headline {
+    .hero-copy {
       position: relative;
       z-index: 1;
       font-size: 30px;
-      line-height: 1.15;
-      letter-spacing: -0.045em;
       font-weight: 900;
-      margin: 0 0 18px;
+      line-height: 1.12;
+      letter-spacing: -0.05em;
+      margin-bottom: 18px;
     }
-    .dashboard-grid {
+    .stats-grid {
       position: relative;
       z-index: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-    .metric {
-      border-radius: 22px;
+    .stat-box {
       padding: 18px;
+      border-radius: 22px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
     }
-    .metric .label {
+    .stat-label {
       font-size: 12px;
-      color: #8fa1b7;
+      color: #8fa0b5;
       font-weight: 800;
-      margin-bottom: 10px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
+      margin-bottom: 10px;
     }
-    .metric .value {
+    .stat-value {
       font-size: 34px;
       font-weight: 900;
-      letter-spacing: -0.05em;
-      color: white;
       line-height: 1;
+      letter-spacing: -0.05em;
+      color: #fff;
     }
-    .metric .delta {
+    .stat-chip {
       display: inline-flex;
       margin-top: 10px;
       padding: 7px 10px;
       border-radius: 999px;
-      background: rgba(21,209,196,0.12);
+      background: rgba(20,210,197,0.12);
       color: #8cf4ea;
       font-size: 12px;
       font-weight: 900;
     }
-    .metric.large {
+    .wide-box {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      grid-template-columns: 1fr 1fr;
       gap: 14px;
       align-items: end;
     }
     .bars {
-      height: 170px;
+      height: 190px;
       display: flex;
       align-items: end;
       gap: 16px;
-      padding-top: 10px;
+      padding-top: 12px;
     }
     .bar {
       flex: 1;
-      border-radius: 18px 18px 6px 6px;
-      background: linear-gradient(180deg, rgba(84,242,199,0.24), rgba(21,209,196,0.85));
+      border-radius: 18px 18px 8px 8px;
       position: relative;
     }
     .bar::before {
-      content: attr(data-label);
+      content: attr(data-title);
       position: absolute;
       top: -26px;
       left: 50%;
       transform: translateX(-50%);
-      font-size: 11px;
       color: #8ea0b4;
+      font-size: 11px;
       font-weight: 800;
+      white-space: nowrap;
     }
     .bar::after {
       content: attr(data-value);
@@ -369,33 +343,27 @@
       top: -50px;
       left: 50%;
       transform: translateX(-50%);
+      color: #fff;
       font-size: 15px;
-      color: white;
       font-weight: 900;
       white-space: nowrap;
     }
-    .bar.light {
-      background: linear-gradient(180deg, rgba(255,255,255,0.18), rgba(255,255,255,0.28));
-    }
-    .bullet-mini {
+    .bar.before { background: linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.24)); }
+    .bar.after { background: linear-gradient(180deg, rgba(124,243,214,0.38), rgba(20,210,197,0.95)); }
+    .mini-list {
       display: grid;
       gap: 10px;
-      color: #c8d5e4;
+      color: #d1dfef;
       font-size: 14px;
-      font-weight: 700;
+      font-weight: 800;
     }
-    .bullet-mini div {
+    .mini-list div {
       padding: 12px 14px;
       border-radius: 16px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.06);
     }
 
-    .section {
-      position: relative;
-      z-index: 1;
-      padding: 96px 0;
-    }
     .section-title {
       font-size: 12px;
       font-weight: 900;
@@ -404,62 +372,56 @@
       color: #8cf4ea;
       margin-bottom: 12px;
     }
-    .section h2 {
-      margin: 0;
-      font-size: clamp(30px, 4vw, 56px);
-      line-height: 1.08;
-      letter-spacing: -0.055em;
-    }
-    .lead {
-      margin-top: 18px;
-      max-width: 760px;
-      font-size: 17px;
-      color: var(--muted);
-    }
 
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 34px;
-    }
-    .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.06), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 30px;
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(10px);
-    }
-    .story-card {
-      padding: 30px;
+    .story-card,
+    .service-card,
+    .case-card,
+    .contact-card,
+    .form-card {
+      padding: 28px;
       position: relative;
       overflow: hidden;
     }
-    .story-card::before {
+    .story-card::before,
+    .service-card::before,
+    .case-card::before,
+    .contact-card::before,
+    .form-card::before {
       content: "";
       position: absolute;
-      top: -60px;
-      right: -60px;
-      width: 160px;
-      height: 160px;
+      right: -70px;
+      top: -70px;
+      width: 180px;
+      height: 180px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(21,209,196,0.16), transparent 66%);
+      background: radial-gradient(circle, rgba(20,210,197,0.14), transparent 64%);
+      pointer-events: none;
     }
-    .story-card h3 {
+    .story-card h3,
+    .service-card h3,
+    .case-card h3,
+    .contact-card h3,
+    .form-card h3 {
       position: relative;
-      margin: 0 0 14px;
+      margin: 0 0 12px;
       font-size: 28px;
-      letter-spacing: -0.04em;
+      line-height: 1.12;
+      letter-spacing: -0.05em;
     }
-    .story-card p {
+    .story-card p,
+    .service-card p,
+    .case-card p,
+    .contact-card p,
+    .form-card p {
       position: relative;
       margin: 0;
       color: var(--muted);
       font-size: 15px;
+      line-height: 1.7;
     }
-    .quote-stack {
-      position: relative;
-      margin-top: 20px;
+
+    .quotes {
+      margin-top: 18px;
       display: grid;
       gap: 12px;
     }
@@ -468,40 +430,24 @@
       border-radius: 20px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
-      color: #eaf4ff;
-      font-weight: 800;
+      color: #eef6ff;
       font-size: 15px;
+      font-weight: 800;
     }
 
-    .service-grid {
+    .services {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 36px;
     }
-    .service-card {
-      position: relative;
-      padding: 28px 24px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.035));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .service-card::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(145deg, rgba(21,209,196,0.08), transparent 42%, rgba(124,92,255,0.06));
-      pointer-events: none;
-    }
-    .service-top {
+    .service-head {
       position: relative;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       gap: 12px;
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
     .service-icon {
       width: 58px;
@@ -511,63 +457,30 @@
       align-items: center;
       justify-content: center;
       font-size: 28px;
-      background: linear-gradient(135deg, rgba(21,209,196,0.18), rgba(124,92,255,0.18));
+      background: linear-gradient(135deg, rgba(20,210,197,0.18), rgba(123,97,255,0.18));
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
     }
     .service-no {
+      color: #8cf4ea;
       font-size: 13px;
       font-weight: 900;
-      color: #8cf4ea;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.12em;
     }
-    .service-card h3 {
-      position: relative;
-      margin: 0 0 10px;
-      font-size: 24px;
-      line-height: 1.15;
-      letter-spacing: -0.04em;
-    }
-    .service-card p {
-      position: relative;
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
-    .service-foot {
+    .service-meta {
       position: relative;
       margin-top: 18px;
       padding-top: 16px;
       border-top: 1px solid rgba(255,255,255,0.08);
-      color: #d5e4f5;
+      color: #d5e3f3;
       font-size: 13px;
       font-weight: 800;
     }
 
-    .results-wrap {
-      margin-top: 38px;
+    .cases {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
-    }
-    .case-card {
-      position: relative;
-      padding: 24px;
-      border-radius: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.04));
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: var(--shadow);
-      overflow: hidden;
-    }
-    .case-card::before {
-      content: "";
-      position: absolute;
-      width: 180px;
-      height: 180px;
-      right: -80px;
-      top: -80px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(21,209,196,0.14), transparent 65%);
+      margin-top: 36px;
     }
     .case-kicker {
       position: relative;
@@ -576,38 +489,39 @@
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: #8cf4ea;
-    }
-    .case-card h3 {
-      position: relative;
-      margin: 10px 0 10px;
-      font-size: 30px;
-      line-height: 1.05;
-      letter-spacing: -0.05em;
-    }
-    .case-card p {
-      position: relative;
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
+      margin-bottom: 10px;
     }
     .case-stats {
       position: relative;
-      margin-top: 18px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
+      margin-top: 18px;
     }
-    .stat {
+    .case-stat {
       padding: 14px;
       border-radius: 18px;
       background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
     }
-    .stat .small { font-size: 12px; color: #8ea0b4; font-weight: 800; }
-    .stat .big { font-size: 34px; color: white; font-weight: 900; letter-spacing: -0.05em; line-height: 1; margin-top: 6px; }
-    .stat.primary { background: linear-gradient(135deg, rgba(21,209,196,0.16), rgba(21,209,196,0.24)); }
-
-    .chart-card {
+    .case-stat strong {
+      display: block;
+      font-size: 12px;
+      color: #8ea0b4;
+      margin-bottom: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .case-stat span {
+      display: block;
+      color: #fff;
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+    .case-stat.highlight { background: linear-gradient(135deg, rgba(20,210,197,0.16), rgba(20,210,197,0.26)); }
+    .chart {
       position: relative;
       margin-top: 18px;
       padding: 18px;
@@ -621,68 +535,53 @@
       align-items: end;
       gap: 14px;
     }
-    .chart-bars .col {
+    .chart-col {
       flex: 1;
-      border-radius: 16px 16px 6px 6px;
+      border-radius: 16px 16px 8px 8px;
       position: relative;
     }
-    .chart-bars .col::after {
-      content: attr(data-value);
+    .chart-col::before {
+      content: attr(data-title);
       position: absolute;
-      top: -28px;
+      top: -24px;
       left: 50%;
       transform: translateX(-50%);
-      color: white;
+      color: #8ea0b4;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .chart-col::after {
+      content: attr(data-value);
+      position: absolute;
+      top: -48px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #fff;
       font-size: 13px;
       font-weight: 900;
     }
-    .chart-bars .col.light { background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.28)); }
-    .chart-bars .col.primary { background: linear-gradient(180deg, rgba(84,242,199,0.35), rgba(21,209,196,0.95)); }
-    .micro-list {
+    .chart-col.before { background: linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.28)); }
+    .chart-col.after { background: linear-gradient(180deg, rgba(124,243,214,0.36), rgba(20,210,197,0.95)); }
+    .case-list {
       margin-top: 16px;
       display: grid;
       gap: 8px;
-      color: #d8e5f2;
-      font-size: 13px;
-      font-weight: 800;
     }
-    .micro-list div {
+    .case-list div {
       padding: 11px 13px;
       border-radius: 14px;
       background: rgba(255,255,255,0.04);
       border: 1px solid rgba(255,255,255,0.06);
-    }
-
-    .band {
-      margin-top: 30px;
-      padding: 16px 18px;
-      border-radius: 20px;
-      background: linear-gradient(90deg, rgba(21,209,196,0.12), rgba(124,92,255,0.12));
-      border: 1px solid rgba(255,255,255,0.08);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-    .chip {
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: rgba(255,255,255,0.06);
-      color: #eef5ff;
+      color: #d8e5f2;
       font-size: 13px;
       font-weight: 800;
-      border: 1px solid rgba(255,255,255,0.08);
     }
 
-    .process {
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-top: 1px solid rgba(255,255,255,0.06);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
-    }
     .process-grid {
-      margin-top: 36px;
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 18px;
+      margin-top: 36px;
     }
     .process-card {
       padding: 24px;
@@ -695,7 +594,7 @@
       display: inline-flex;
       padding: 8px 12px;
       border-radius: 999px;
-      background: rgba(21,209,196,0.14);
+      background: rgba(20,210,197,0.12);
       color: #8cf4ea;
       font-size: 12px;
       font-weight: 900;
@@ -709,106 +608,84 @@
     }
     .process-card p {
       margin: 0;
-      font-size: 15px;
       color: var(--muted);
+      font-size: 15px;
+      line-height: 1.7;
     }
 
-    .contact-wrap {
-      display: grid;
-      grid-template-columns: 1.05fr 0.95fr;
-      gap: 18px;
-      margin-top: 36px;
-    }
-    .contact-card, .form-card {
-      padding: 30px;
-      border-radius: 30px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: var(--shadow);
-    }
-    .contact-card h3, .form-card h3 {
-      margin: 0 0 10px;
-      font-size: 32px;
-      letter-spacing: -0.05em;
-    }
-    .contact-card p, .form-card p {
-      margin: 0;
-      color: var(--muted);
-      font-size: 15px;
-    }
     .contact-list {
       margin-top: 22px;
       display: grid;
       gap: 12px;
     }
     .contact-item {
-      padding: 18px 18px;
+      padding: 18px;
       border-radius: 20px;
-      background: rgba(255,255,255,0.04);
+      background: rgba(255,255,255,0.05);
       border: 1px solid rgba(255,255,255,0.08);
     }
     .contact-item strong {
       display: block;
       margin-bottom: 6px;
-      font-size: 14px;
       color: #fff;
+      font-size: 14px;
     }
-    .contact-item span, .contact-item a {
-      color: #d5e4f3;
+    .contact-item a, .contact-item span {
+      color: #d5e4f2;
       font-size: 14px;
       word-break: break-all;
     }
     .input, .textarea {
       width: 100%;
       margin-top: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.04);
-      color: white;
-      font-size: 15px;
       padding: 15px 16px;
+      border-radius: 18px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.04);
+      color: #fff;
+      font-size: 15px;
       font-family: inherit;
       outline: none;
     }
-    .input::placeholder, .textarea::placeholder { color: #8698ad; }
+    .input::placeholder, .textarea::placeholder { color: #8496ac; }
     .input:focus, .textarea:focus {
-      border-color: rgba(84,242,199,0.45);
-      box-shadow: 0 0 0 4px rgba(21,209,196,0.10);
+      border-color: rgba(124,243,214,0.48);
+      box-shadow: 0 0 0 4px rgba(20,210,197,0.10);
     }
-    .textarea { min-height: 134px; resize: vertical; }
+    .textarea { min-height: 138px; resize: vertical; }
 
-    .cta-banner {
+    .cta-band {
       margin-top: 26px;
       padding: 34px;
       border-radius: 32px;
-      background: linear-gradient(135deg, rgba(8,18,31,0.88), rgba(16,48,67,0.92) 44%, rgba(19,189,181,0.86));
+      background: linear-gradient(135deg, rgba(8,18,31,0.9), rgba(15,47,67,0.92) 46%, rgba(20,210,197,0.82));
       border: 1px solid rgba(255,255,255,0.08);
-      box-shadow: 0 26px 56px rgba(0,0,0,0.24);
+      box-shadow: 0 28px 58px rgba(0,0,0,0.24);
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      gap: 20px;
-      overflow: hidden;
+      align-items: center;
+      gap: 18px;
       position: relative;
+      overflow: hidden;
     }
-    .cta-banner::before {
+    .cta-band::before {
       content: "";
       position: absolute;
-      right: -100px;
+      right: -120px;
       top: -100px;
       width: 280px;
       height: 280px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(255,255,255,0.18), transparent 64%);
+      background: radial-gradient(circle, rgba(255,255,255,0.2), transparent 64%);
     }
-    .cta-banner h3 {
+    .cta-band h3 {
       position: relative;
       margin: 0 0 8px;
-      font-size: 42px;
-      line-height: 1.06;
+      font-size: clamp(34px, 4vw, 52px);
+      line-height: 1.02;
       letter-spacing: -0.06em;
     }
-    .cta-banner p {
+    .cta-band p {
       position: relative;
       margin: 0;
       color: rgba(255,255,255,0.86);
@@ -819,23 +696,22 @@
       position: relative;
       z-index: 1;
       padding: 28px 0 48px;
-      color: #8b9db1;
+      color: #8c9db0;
       font-size: 14px;
     }
     .footer-box {
-      padding-top: 20px;
       border-top: 1px solid rgba(255,255,255,0.06);
+      padding-top: 20px;
       display: flex;
       justify-content: space-between;
       gap: 12px;
       flex-wrap: wrap;
     }
-
     .floating-kakao {
       position: fixed;
       right: 18px;
       bottom: 18px;
-      z-index: 300;
+      z-index: 400;
       width: 66px;
       height: 66px;
       border-radius: 50%;
@@ -843,42 +719,31 @@
       align-items: center;
       justify-content: center;
       background: #fee500;
-      color: #1a1a1a;
+      color: #191600;
       font-size: 28px;
-      box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+      box-shadow: 0 18px 40px rgba(0,0,0,0.26);
     }
 
     @media (max-width: 1100px) {
-      .hero-grid,
-      .story-grid,
-      .contact-wrap { grid-template-columns: 1fr; }
-      .service-grid,
-      .results-wrap,
-      .process-grid { grid-template-columns: 1fr 1fr; }
-      .hero-strip { grid-template-columns: 1fr 1fr 1fr; }
+      .hero-grid, .split-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services, .cases, .process-grid { grid-template-columns: 1fr 1fr; }
     }
 
     @media (max-width: 760px) {
       .nav { display: none; }
-      .hero, .section { padding: 72px 0; }
-      .service-grid,
-      .results-wrap,
-      .process-grid,
-      .hero-strip,
-      .dashboard-grid { grid-template-columns: 1fr; }
-      .hero-actions,
-      .cta-banner { flex-direction: column; align-items: stretch; }
+      .slide { min-height: auto; padding: 94px 0 42px; }
+      .services, .cases, .process-grid, .stats-grid { grid-template-columns: 1fr; }
+      .wide-box { grid-template-columns: 1fr; }
+      .actions, .cta-band { flex-direction: column; align-items: stretch; }
       .btn { width: 100%; }
-      .metric.large { grid-template-columns: 1fr; }
       .topbar-inner { padding: 14px 0; }
       .brand { font-size: 28px; }
-      .cta-banner h3 { font-size: 32px; }
-      .section h2 { font-size: 34px; }
-      .contact-card h3, .form-card h3 { font-size: 28px; }
+      .hero-panel { min-height: auto; }
+      .slide::before { display: none; }
     }
   </style>
 </head>
-<body class="noise">
+<body class="bg-noise">
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand-wrap">
@@ -886,366 +751,344 @@
         <div class="brand-sub">NAVER PERFORMANCE MARKETING</div>
       </div>
       <nav class="nav">
-        <a href="#about">회사소개</a>
-        <a href="#services">서비스</a>
-        <a href="#results">성과구조</a>
-        <a href="#process">진행방식</a>
-        <a href="#contact">문의하기</a>
+        <a href="#hero">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#services">SERVICE</a>
+        <a href="#results">RESULT</a>
+        <a href="#contact">CONTACT</a>
       </nav>
-      <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">🔥 지금 상담 연결</a>
+      <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">지금 상담 연결</a>
     </div>
   </header>
 
-  <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="eyebrow">함께이기에 가능한 성과형 마케팅</div>
-        <h1>
-          광고비만 쓰고 끝나는 마케팅 말고<br>
-          <span class="gradient">사장님이 바로 연락하게 만드는</span><br>
-          전환 구조를 설계합니다.
-        </h1>
-        <p class="hero-desc">
-          WITH는 네이버 플레이스, SEO, CPC 광고, 블로그, 리뷰, 인플루언서 운영을 따로 보지 않습니다. 고객이 검색하고, 클릭하고, 신뢰하고, 문의하는 흐름 전체를 하나로 설계합니다.
-        </p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">🚀 지금 무료로 매출 진단 받기</a>
-          <a class="btn btn-secondary" href="#results">📈 성과 구조 보기</a>
-          <a class="btn btn-ghost" href="#services">서비스 전체 보기</a>
-        </div>
-        <div class="hero-strip">
-          <div class="strip-card">
-            <strong>플레이스 최적화</strong>
-            <p>검색 노출부터 클릭 흐름까지 정리</p>
-          </div>
-          <div class="strip-card">
-            <strong>SEO · CPC 운영</strong>
-            <p>유입만이 아니라 문의 전환 구조까지 설계</p>
-          </div>
-          <div class="strip-card">
-            <strong>콘텐츠 확장</strong>
-            <p>블로그 · 리뷰 · 인플루언서까지 한 번에</p>
+  <main class="deck">
+    <section class="slide" id="hero" data-step="01">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">광고비만 쓰고 끝나는 구조, 이제 그만</div>
+          <h1>
+            광고비만 쓰고 끝나는 마케팅 말고<br>
+            <span class="gradient">사장님이 바로 연락하게 만드는</span><br>
+            구조를 만듭니다.
+          </h1>
+          <p class="lead">
+            WITH는 네이버 플레이스, SEO, CPC 광고, 리뷰, 블로그, 인플루언서 운영을 한 줄로 묶습니다. 예쁘게만 보이는 홈페이지가 아니라 문의가 들어오게 만드는 흐름을 설계합니다.
+          </p>
+          <div class="actions">
+            <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">무료로 매출 진단 받기</a>
+            <a class="btn btn-dark" href="#results">성과 구조 보기</a>
           </div>
         </div>
-      </div>
 
-      <div class="hero-panel">
-        <div class="panel-top">
-          <small>WITH LIVE DASHBOARD</small>
-          <div class="live-badge">PERFORMANCE ACTIVE</div>
-        </div>
-        <h2 class="panel-headline">보여주기용 자료가 아니라<br>반응이 오는 구조를 시각화</h2>
-        <div class="dashboard-grid">
-          <div class="metric">
-            <div class="label">상담 문의</div>
-            <div class="value">2.1x</div>
-            <div class="delta">문의 전환 구조 강화</div>
+        <div class="glass hero-panel">
+          <div class="hero-top">
+            <small>WITH PERFORMANCE BOARD</small>
+            <div class="live">LIVE ACTIVE</div>
           </div>
-          <div class="metric">
-            <div class="label">플레이스 노출</div>
-            <div class="value">+187%</div>
-            <div class="delta">검색 클릭 흐름 정리</div>
-          </div>
-          <div class="metric large">
-            <div>
-              <div class="label">매출 상승 흐름</div>
-              <div class="bars">
-                <div class="bar light" style="height:54px" data-label="전" data-value="550"></div>
-                <div class="bar" style="height:118px" data-label="후" data-value="1200"></div>
+          <div class="hero-copy">클릭만 늘리는 게 아니라<br>문의가 오게 만드는 설계</div>
+          <div class="stats-grid">
+            <div class="stat-box">
+              <div class="stat-label">문의 전환</div>
+              <div class="stat-value">2.1X</div>
+              <div class="stat-chip">CTA 구조 강화</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-label">플레이스 노출</div>
+              <div class="stat-value">+187%</div>
+              <div class="stat-chip">검색 흐름 정리</div>
+            </div>
+            <div class="stat-box wide-box">
+              <div>
+                <div class="stat-label">매출 상승 흐름</div>
+                <div class="bars">
+                  <div class="bar before" style="height:56px" data-title="기존 구조" data-value="550"></div>
+                  <div class="bar after" style="height:126px" data-title="개선 구조" data-value="1200"></div>
+                </div>
+              </div>
+              <div class="mini-list">
+                <div>플레이스 첫 화면 재설계</div>
+                <div>상담 문구와 버튼 재배치</div>
+                <div>리뷰 · 콘텐츠 · 광고 흐름 연결</div>
               </div>
             </div>
-            <div class="bullet-mini">
-              <div>✔ 플레이스 구조 수정</div>
-              <div>✔ 리뷰 · 콘텐츠 동선 정리</div>
-              <div>✔ CTA 문구와 문의 흐름 강화</div>
-            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="about">
-    <div class="container">
-      <div class="section-title">About WITH</div>
-      <h2>WITH는 광고 대행이 아니라<br>브랜드 성장 흐름을 설계하는 팀입니다.</h2>
-      <p class="lead">
-        단순히 광고를 집행하는 것이 아니라, 브랜드의 가치를 높이고 비즈니스의 성장 구조를 함께 설계하는 것이 WITH의 역할입니다. 처음부터 끝까지 같이 가는 파트너처럼 움직입니다.
-      </p>
-
-      <div class="story-grid">
-        <div class="glass story-card">
-          <h3>성공을 함께 만드는 동반자</h3>
-          <p>
-            마케팅은 클릭 수만 늘리는 일이 아닙니다. 고객이 브랜드를 신뢰하고 결국 선택하게 만드는 과정입니다. WITH는 Wisdom, Trust, Honesty를 중심에 두고 고객사의 성장을 가장 가까이에서 설계합니다.
+    <section class="slide" id="about" data-step="02">
+      <div class="container split-grid">
+        <div>
+          <div class="section-title">About WITH</div>
+          <h2>설명만 많은 대행사가 아니라<br>움직이게 만드는 팀</h2>
+          <p class="lead">
+            마케팅은 단순히 광고를 집행하는 일이 아닙니다. 브랜드의 가치를 높이고, 고객이 선택하게 만들고, 결국 매출이 오르게 만드는 과정입니다. WITH는 그 흐름 전체를 함께 설계합니다.
           </p>
         </div>
         <div class="glass story-card">
-          <h3>이런 사장님들에게 맞습니다</h3>
-          <div class="quote-stack">
-            <div class="quote">광고비만 계속 쓰는데 매출이 안 올라서 답답한 사장님</div>
-            <div class="quote">플레이스, 블로그, 리뷰, 광고가 따로 놀고 있는 사업자</div>
-            <div class="quote">보여주기보다 실제 문의와 예약이 필요한 대표님</div>
+          <h3>WITH가 맞는 사장님</h3>
+          <div class="quotes">
+            <div class="quote">광고비만 나가고 문의는 늘지 않아 답답한 사장님</div>
+            <div class="quote">플레이스, 리뷰, 광고가 따로 놀아 비효율적인 업체</div>
+            <div class="quote">예쁜 소개보다 예약과 문의가 필요한 대표님</div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="services">
-    <div class="container">
-      <div class="section-title">Main Services</div>
-      
-      <p class="lead">
-        
+    <section class="slide" id="services" data-step="03">
+      <div class="container">
+        <div class="section-title">Main Service</div>
+        <h2>우리 느낌은 살리고<br>마케팅 회사답게 날카롭게</h2>
+        <p class="lead">
+          네이버 플레이스부터 SEO, CPC, 블로그 배포, 클립, 인플루언서 운영까지. 따로따로 보지 않고 전환 흐름 기준으로 묶었습니다.
+        </p>
 
-      <div class="service-grid">
-        <div class="service-card">
-          <div class="service-top">
-            <div class="service-icon">📍</div>
-            <div class="service-no">01</div>
+        <div class="services">
+          <div class="glass service-card">
+            <div class="service-head">
+              <div class="service-icon">📍</div>
+              <div class="service-no">01</div>
+            </div>
+            <h3>네이버 플레이스 최적화</h3>
+            <p>첫 화면, 키워드, 노출 구조를 정리해 검색부터 클릭까지 끌어올립니다.</p>
+            <div class="service-meta">플레이스 컨설팅 · 순위 관리 · 구조 정리</div>
           </div>
-          <h3>네이버 플레이스 최적화</h3>
-          <p>플레이스 노출, 클릭, 방문 전환이 이어지게 매장의 첫 화면 구조를 정리하고 최적화합니다.</p>
-          <div class="service-foot">플레이스 컨설팅 · 순위 관리 · 상세페이지 정리</div>
-        </div>
-        <div class="service-card">
-          <div class="service-top">
-            <div class="service-icon">🔎</div>
-            <div class="service-no">02</div>
+
+          <div class="glass service-card">
+            <div class="service-head">
+              <div class="service-icon">🔎</div>
+              <div class="service-no">02</div>
+            </div>
+            <h3>SEO · CPC 광고</h3>
+            <p>키워드와 광고 구조를 재설계해 유입만이 아니라 실제 문의까지 연결합니다.</p>
+            <div class="service-meta">검색 최적화 · 광고 세팅 · 리드 유입</div>
           </div>
-          <h3>SEO · CPC 광고 세팅</h3>
-          <p>키워드 분석부터 노출 전략, 광고 세팅까지 실제 유입과 문의를 만드는 흐름으로 설계합니다.</p>
-          <div class="service-foot">검색 최적화 · 광고 구조 설계 · 리드 유입 강화</div>
-        </div>
-        <div class="service-card">
-          <div class="service-top">
-            <div class="service-icon">📝</div>
-            <div class="service-no">03</div>
+
+          <div class="glass service-card">
+            <div class="service-head">
+              <div class="service-icon">📝</div>
+              <div class="service-no">03</div>
+            </div>
+            <h3>블로그 · 리뷰 운영</h3>
+            <p>보여주기용 게시물이 아니라 신뢰가 쌓이고 문의가 생기게 흐름을 만듭니다.</p>
+            <div class="service-meta">후기 배포 · 신뢰도 강화 · 예약 유도</div>
           </div>
-          <h3>블로그 · 리뷰 운영</h3>
-          <p>보여주기용 게시물보다 고객이 신뢰하고 문의하게 만드는 콘텐츠와 리뷰 흐름을 만듭니다.</p>
-          <div class="service-foot">리뷰 관리 · 블로그 배포 · 신뢰도 강화</div>
-        </div>
-        <div class="service-card">
-          <div class="service-top">
-            <div class="service-icon">📲</div>
-            <div class="service-no">04</div>
+
+          <div class="glass service-card">
+            <div class="service-head">
+              <div class="service-icon">📲</div>
+              <div class="service-no">04</div>
+            </div>
+            <h3>탭 상위노출 전략</h3>
+            <p>반복 노출 구조를 만들고 클릭 후 이탈을 줄여 고객 머릿속에 남게 합니다.</p>
+            <div class="service-meta">반복 노출 · 클릭 유도 · 가시성 확대</div>
           </div>
-          <h3>탭 상위노출 전략</h3>
-          <p>플레이스와 검색 영역의 반복 노출 구조를 설계해 고객 머릿속에 계속 보이게 만듭니다.</p>
-          <div class="service-foot">탭 상위노출 · 반복 노출 · 클릭 유도 강화</div>
-        </div>
-        <div class="service-card">
-          <div class="service-top">
-            <div class="service-icon">🎬</div>
-            <div class="service-no">05</div>
+
+          <div class="glass service-card">
+            <div class="service-head">
+              <div class="service-icon">🎬</div>
+              <div class="service-no">05</div>
+            </div>
+            <h3>네이버 클립 · 체험단</h3>
+            <p>짧고 강한 콘텐츠와 체험 흐름으로 지역 화제성과 주목도를 함께 만듭니다.</p>
+            <div class="service-meta">클립 · 숏폼 · 체험 후기 · 지역 바이럴</div>
           </div>
-          <h3>네이버 클립 · 체험단</h3>
-          <p>짧고 강한 콘텐츠로 주목도를 높이고, 체험 기반 후기 흐름으로 지역 화제성을 키웁니다.</p>
-          <div class="service-foot">클립 · 숏폼 · 체험 후기 · 지역 바이럴</div>
-        </div>
-        <div class="service-card">
-          <div class="service-top">
-            <div class="service-icon">✨</div>
-            <div class="service-no">06</div>
+
+          <div class="glass service-card">
+            <div class="service-head">
+              <div class="service-icon">✨</div>
+              <div class="service-no">06</div>
+            </div>
+            <h3>인플루언서 · PPL</h3>
+            <p>브랜드와 맞는 인플루언서를 연결해 분위기와 인지도를 자연스럽게 키웁니다.</p>
+            <div class="service-meta">인스타그램 · 크리에이터 · 체험형 홍보</div>
           </div>
-          <h3>인플루언서 · PPL 연계</h3>
-          <p>브랜드 이미지와 맞는 인플루언서와 연결해 매장 분위기와 인지도를 자연스럽게 높입니다.</p>
-          <div class="service-foot">인스타그램 · 크리에이터 · 체험형 홍보</div>
         </div>
       </div>
+    </section>
 
-      <div class="band">
-        <div class="chip">네이버 플레이스 컨설팅</div>
-        <div class="chip">SEO 최적화 및 광고 세팅</div>
-        <div class="chip">키워드 분석 및 노출 확장</div>
-        <div class="chip">블로그 배포 및 리뷰 관리</div>
-        <div class="chip">인스타그램 인플루언서</div>
-        <div class="chip">네이버 클립 운영</div>
-      </div>
-    </div>
-  </section>
+    <section class="slide" id="results" data-step="04">
+      <div class="container">
+        <div class="section-title">Performance</div>
+        <h2>예쁜 척하는 홈페이지 말고<br>바로 연락하고 싶게 만드는 구조</h2>
+        <p class="lead">
+          성과 섹션도 단순 비교표처럼 보이지 않게 바꿨습니다. "기존 구조 / 개선 구조" 흐름으로 보여주고, 카드형 대시보드 감성으로 정리해 전문성을 살렸습니다.
+        </p>
 
-  <section class="section" id="results">
-    <div class="container">
-      <div class="section-title">Performance Design</div>
-     
-      <p class="lead">
-        
-
-      <div class="results-wrap">
-        <div class="case-card">
-          <div class="case-kicker">Case 01</div>
-          <h3>매출 상승 구조 사례</h3>
-          <p>플레이스와 리뷰, 광고 흐름을 하나로 묶어 단기 유입이 아닌 실제 예약 흐름을 강화한 구조.</p>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="small">기존 구조</div>
-              <div class="big">550</div>
+        <div class="cases">
+          <div class="glass case-card">
+            <div class="case-kicker">Case 01</div>
+            <h3>매출 상승 구조 사례</h3>
+            <p>플레이스, 리뷰, 광고 흐름을 묶어 예약으로 이어지게 만든 구조.</p>
+            <div class="case-stats">
+              <div class="case-stat">
+                <strong>기존 구조</strong>
+                <span>550</span>
+              </div>
+              <div class="case-stat highlight">
+                <strong>개선 구조</strong>
+                <span>1200</span>
+              </div>
             </div>
-            <div class="stat primary">
-              <div class="small">개선 구조</div>
-              <div class="big">1200</div>
+            <div class="chart">
+              <div class="chart-bars">
+                <div class="chart-col before" style="height:58px" data-title="기존" data-value="550"></div>
+                <div class="chart-col after" style="height:128px" data-title="개선" data-value="1200"></div>
+              </div>
+              <div class="case-list">
+                <div>플레이스 첫 화면 개선</div>
+                <div>리뷰 신뢰도 정리</div>
+                <div>상담 문구 강화</div>
+              </div>
             </div>
           </div>
-          <div class="chart-card">
-            <div class="chart-bars">
-              <div class="col light" style="height:58px" data-value="550"></div>
-              <div class="col primary" style="height:128px" data-value="1200"></div>
-            </div>
-            <div class="micro-list">
-              <div>플레이스 구조 수정</div>
-              <div>리뷰 흐름 개선</div>
-              <div>상담 문구 강화</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="case-card">
-          <div class="case-kicker">Case 02</div>
-          <h3>방문 전환 확대 사례</h3>
-          <p>상위 노출만이 아니라 클릭 후 이탈을 줄이도록 첫 화면과 콘텐츠 신뢰도를 재정비한 사례.</p>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="small">기존 구조</div>
-              <div class="big">90</div>
+          <div class="glass case-card">
+            <div class="case-kicker">Case 02</div>
+            <h3>방문 전환 확대 사례</h3>
+            <p>상위 노출만이 아니라 클릭 이후 이탈을 줄여 실제 방문 흐름을 키운 구조.</p>
+            <div class="case-stats">
+              <div class="case-stat">
+                <strong>기존 구조</strong>
+                <span>90</span>
+              </div>
+              <div class="case-stat highlight">
+                <strong>개선 구조</strong>
+                <span>270</span>
+              </div>
             </div>
-            <div class="stat primary">
-              <div class="small">개선 구조</div>
-              <div class="big">270</div>
+            <div class="chart">
+              <div class="chart-bars">
+                <div class="chart-col before" style="height:52px" data-title="기존" data-value="90"></div>
+                <div class="chart-col after" style="height:136px" data-title="개선" data-value="270"></div>
+              </div>
+              <div class="case-list">
+                <div>노출 구조 재설계</div>
+                <div>콘텐츠 클릭률 개선</div>
+                <div>이탈 구간 축소</div>
+              </div>
             </div>
           </div>
-          <div class="chart-card">
-            <div class="chart-bars">
-              <div class="col light" style="height:52px" data-value="90"></div>
-              <div class="col primary" style="height:136px" data-value="270"></div>
-            </div>
-            <div class="micro-list">
-              <div>플레이스 노출 강화</div>
-              <div>콘텐츠 클릭률 상승</div>
-              <div>브랜드 신뢰도 개선</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="case-card">
-          <div class="case-kicker">Case 03</div>
-          <h3>상담 전환 강화 사례</h3>
-          <p>버튼 문구와 CTA 구조, 연락 동선을 바꿔 실제 메시지·전화 전환을 끌어올린 사례.</p>
-          <div class="case-stats">
-            <div class="stat">
-              <div class="small">기존 구조</div>
-              <div class="big">30</div>
+          <div class="glass case-card">
+            <div class="case-kicker">Case 03</div>
+            <h3>상담 전환 강화 사례</h3>
+            <p>버튼, 문구, 카카오 연결 흐름을 바꿔 실제 연락 수를 끌어올린 구조.</p>
+            <div class="case-stats">
+              <div class="case-stat">
+                <strong>기존 구조</strong>
+                <span>30</span>
+              </div>
+              <div class="case-stat highlight">
+                <strong>개선 구조</strong>
+                <span>60</span>
+              </div>
             </div>
-            <div class="stat primary">
-              <div class="small">개선 구조</div>
-              <div class="big">60</div>
-            </div>
-          </div>
-          <div class="chart-card">
-            <div class="chart-bars">
-              <div class="col light" style="height:58px" data-value="30"></div>
-              <div class="col primary" style="height:116px" data-value="60"></div>
-            </div>
-            <div class="micro-list">
-              <div>상담 버튼 재배치</div>
-              <div>카카오 연결 강화</div>
-              <div>즉시 문의 CTA 삽입</div>
+            <div class="chart">
+              <div class="chart-bars">
+                <div class="chart-col before" style="height:58px" data-title="기존" data-value="30"></div>
+                <div class="chart-col after" style="height:116px" data-title="개선" data-value="60"></div>
+              </div>
+              <div class="case-list">
+                <div>CTA 재배치</div>
+                <div>카카오 즉시 연결</div>
+                <div>후킹 문구 적용</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </section>
 
-      <div class="cta-banner">
-        <div>
-          <h3>계속 광고비만 쓰실 건가요?<br>아니면 매출 구조로 바꾸실 건가요?</h3>
-          <p>사장님이 반응하는 건 예쁜 설명이 아니라, 지금 바로 연락하고 싶어지는 구조입니다.</p>
-        </div>
-        <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">지금 무료로 매출 진단 받기 →</a>
-      </div>
-    </div>
-  </section>
+    <section class="slide" id="process" data-step="05">
+      <div class="container">
+        <div class="section-title">Process</div>
+        <h2>길게 돌리지 않고<br>바로 성과 구조부터 잡습니다.</h2>
+        <p class="lead">
+          지금 필요한 건 더 많은 설명이 아니라, 현재 구조에서 어디가 새고 있는지 찾고 바로 고치는 일입니다.
+        </p>
 
-  <section class="section process" id="process">
-    <div class="container">
-      <div class="section-title">Process</div>
-      <h2>복잡하게 설명하지 않고<br>성과가 나오게 진행합니다.</h2>
-      <p class="lead">
-        신규 업체든 기존 운영 업체든, 현재 구조를 빠르게 분석하고 필요한 것부터 정리합니다. 불필요하게 길게 끌지 않는 게 WITH 방식입니다.
-      </p>
-
-      <div class="process-grid">
-        <div class="process-card">
-          <div class="step">STEP 01</div>
-          <h3>진단</h3>
-          <p>업종, 지역, 키워드, 경쟁 매장, 현재 노출 구조를 먼저 점검합니다.</p>
-        </div>
-        <div class="process-card">
-          <div class="step">STEP 02</div>
-          <h3>설계</h3>
-          <p>플레이스, 리뷰, 콘텐츠, 광고를 따로 보지 않고 한 흐름으로 전략을 짭니다.</p>
-        </div>
-        <div class="process-card">
-          <div class="step">STEP 03</div>
-          <h3>실행</h3>
-          <p>콘텐츠, 노출, 광고, 클립, 인플루언서 등 필요한 요소를 실제로 집행합니다.</p>
-        </div>
-        <div class="process-card">
-          <div class="step">STEP 04</div>
-          <h3>보정</h3>
-          <p>반응을 보면서 문의 문구, 노출 구조, 클릭 동선을 계속 수정합니다.</p>
+        <div class="process-grid">
+          <div class="process-card">
+            <div class="step">STEP 01</div>
+            <h3>진단</h3>
+            <p>업종, 지역, 키워드, 경쟁 매장, 현재 노출 구조를 먼저 분석합니다.</p>
+          </div>
+          <div class="process-card">
+            <div class="step">STEP 02</div>
+            <h3>설계</h3>
+            <p>플레이스, 광고, 콘텐츠를 나눠 보지 않고 한 흐름으로 전략을 짭니다.</p>
+          </div>
+          <div class="process-card">
+            <div class="step">STEP 03</div>
+            <h3>실행</h3>
+            <p>리뷰, 콘텐츠, 클립, 광고, CTA까지 실제 문의가 나게 바로 적용합니다.</p>
+          </div>
+          <div class="process-card">
+            <div class="step">STEP 04</div>
+            <h3>보정</h3>
+            <p>반응을 보며 문구, 노출, 클릭 동선, 문의 구조를 계속 다듬습니다.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="contact">
-    <div class="container">
-      <div class="section-title">Contact</div>
-  
-      <p class="lead">
-       
+    <section class="slide" id="contact" data-step="06">
+      <div class="container">
+        <div class="section-title">Contact</div>
+        <h2>결국 중요한 건<br>사장님이 바로 연락하는가입니다.</h2>
+        <p class="lead">
+         
 
-      <div class="contact-wrap">
-        <div class="contact-card">
-          <h3>상담 문의</h3>
-          
-          <div class="contact-list">
-            <div class="contact-item">
-              <strong>📞 전화 문의</strong>
-              <span><a href="tel:01056242935">010-5624-2935</a></span>
+        <div class="contact-grid">
+          <div class="glass contact-card">
+            <h3>상담 문의</h3>
+            <div class="contact-list">
+              <div class="contact-item">
+                <strong>전화 문의</strong>
+                <span><a href="tel:01056242935">010-5624-2935</a></span>
+              </div>
+              <div class="contact-item">
+                <strong>카카오톡 채널</strong>
+                <span><a href="https://invite.kakao.com/tc/sE84BY47am">https://invite.kakao.com/tc/sE84BY47am</a></span>
+              </div>
+              <div class="contact-item">
+                <strong>이메일</strong>
+                <span><a href="mailto:wlstjqwow@naver.com">wlstjqwow@naver.com</a></span>
+              </div>
+              <div class="contact-item">
+                <strong>회사명</strong>
+                <span>WITH COMPANY</span>
+              </div>
+              <div class="contact-item">
+                <strong>주소</strong>
+                <span>서울특별시 신림로 107</span>
+              </div>
             </div>
-            <div class="contact-item">
-              <strong>💬 카카오톡 채널</strong>
-              <span><a href="https://invite.kakao.com/tc/sE84BY47am">https://invite.kakao.com/tc/sE84BY47am</a></span>
-            </div>
-            <div class="contact-item">
-              <strong>✉️ 이메일</strong>
-              <span><a href="mailto:wlstjqwow@naver.com">wlstjqwow@naver.com</a></span>
-            </div>
-            <div class="contact-item">
-              <strong>🏢 회사명</strong>
-              <span>WITH COMPANY</span>
-            </div>
-            <div class="contact-item">
-              <strong>📍 주소</strong>
-              <span>서울특별시 신림로 107</span>
+          </div>
+
+          <div class="glass form-card">
+            <h3>빠른 상담 신청</h3>
+            <input class="input" type="text" placeholder="업체명" />
+            <input class="input" type="text" placeholder="연락처" />
+            <textarea class="textarea" placeholder="현재 고민이나 원하는 방향을 적어주세요."></textarea>
+            <div class="actions" style="margin-top:14px;">
+              <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am" style="width:100%;">카카오톡으로 바로 문의하기</a>
             </div>
           </div>
         </div>
 
-        <div class="form-card">
-          <h3>빠른 상담 신청</h3>
-          <p>실제 폼 연동 전까지는 카카오톡 연결 버튼 중심으로 운영해도 충분합니다.</p>
-          <input class="input" type="text" placeholder="업체명" />
-          <input class="input" type="text" placeholder="연락처" />
-          <textarea class="textarea" placeholder="현재 고민이나 원하는 마케팅 방향을 적어주세요."></textarea>
-          <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am" style="width:100%; margin-top:14px;">💬 카카오톡으로 바로 문의하기</a>
+        <div class="cta-band">
+          <div>
+            <h3>광고비만 계속 쓰실 건가요?<br>아니면 매출 구조로 바꾸실 건가요?</h3>
+            <p>WITH는 예쁘게만 보이는 마케팅이 아니라 바로 연락하게 만드는 구조를 설계합니다.</p>
+          </div>
+          <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">지금 무료로 매출 진단 받기</a>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <footer>
     <div class="container footer-box">
