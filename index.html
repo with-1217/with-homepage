@@ -19,7 +19,7 @@
       --radius-lg: 24px;
       --radius-md: 18px;
       --max: 1180px;
-   .process-section {
+    .process-section {
   display: grid;
   gap: 28px;
 }
@@ -49,177 +49,7 @@
   .process-visual-card {
     border-radius: 20px;
   }
-  
 }
-  
-  .about-upgrade {
-  position: relative;
-  overflow: hidden;
-}
-
-.about-upgrade-wrap {
-  display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: 28px;
-  align-items: center;
-}
-
-.about-copy {
-  position: relative;
-  z-index: 2;
-}
-
-.about-flow {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 28px;
-}
-
-.flow-item {
-  padding: 12px 16px;
-  border-radius: 999px;
-  background: #ffffff;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  color: #0f172a;
-  font-size: 14px;
-  font-weight: 800;
-  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
-}
-
-.flow-item.active {
-  background: #19cfc1;
-  border-color: #19cfc1;
-  color: #ffffff;
-}
-
-.flow-arrow {
-  color: #19cfc1;
-  font-size: 20px;
-  font-weight: 900;
-}
-
-.about-side {
-  position: relative;
-  min-height: 620px;
-}
-
-.about-card {
-  position: relative;
-  z-index: 3;
-  width: 78%;
-  margin-left: auto;
-  padding: 30px;
-  background: rgba(255,255,255,0.96);
-  border: 1px solid rgba(15, 23, 42, 0.08);
-  border-radius: 28px;
-  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
-}
-
-.about-card h3 {
-  margin: 0 0 18px;
-  font-size: 30px;
-  line-height: 1.1;
-  letter-spacing: -0.05em;
-  color: #0f172a;
-}
-
-.about-point {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding: 16px 18px;
-  border-radius: 20px;
-  background: #fcfffe;
-  border: 1px solid rgba(15, 23, 42, 0.08);
-}
-
-.about-point + .about-point {
-  margin-top: 12px;
-}
-
-.about-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background: #eafaf8;
-  color: #11b8ac;
-  font-size: 12px;
-  font-weight: 900;
-  flex-shrink: 0;
-}
-
-.about-visual {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 88%;
-  z-index: 1;
-}
-
-.about-visual img {
-  width: 100%;
-  display: block;
-  border-radius: 28px;
-  box-shadow: 0 24px 50px rgba(15, 23, 42, 0.10);
-}
-
-@media (max-width: 1100px) {
-  .about-upgrade-wrap {
-    grid-template-columns: 1fr;
-  }
-
-  .about-side {
-    min-height: auto;
-  }
-
-  .about-card {
-    width: 100%;
-    margin-left: 0;
-  }
-
-  .about-visual {
-    position: relative;
-    width: 100%;
-    margin-top: 18px;
-  }
-
-@media (max-width: 760px) {
-  .about-flow {
-    gap: 8px;
-  }
-
-  .flow-item {
-    font-size: 13px;
-    padding: 10px 14px;
-  }
-
-  .flow-arrow {
-    font-size: 16px;
-  }
-
-  .about-card {
-    padding: 22px;
-    border-radius: 22px;
-  }
-
-  .about-card h3 {
-    font-size: 24px;
-  }
-
-  .about-point {
-    align-items: flex-start;
-  }
-
-  .about-visual img {
-    border-radius: 22px;
-  }
-  
- }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -884,59 +714,23 @@
     </div>
   </section>
 
-<section class="section about-upgrade" id="about">
-  <div class="container about-upgrade-wrap">
-
-    <div class="about-copy">
-      <div class="section-title">ABOUT WITH</div>
-      <h2>
-        보여주기보다<br>
-        <span class="mint">반응이 먼저</span>입니다.
-      </h2>
-      <p class="lead">
-        마케팅은 예쁘게 보이는 것이 아니라 고객이 신뢰하고,
-        클릭하고, 문의하게 만드는 흐름이어야 합니다.
-        WITH는 그 구조를 설계합니다.
-      </p>
-
-      <div class="about-flow">
-        <div class="flow-item">검색 / 노출</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item">유입 / 클릭</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item">예약 / 문의</div>
-        <div class="flow-arrow">→</div>
-        <div class="flow-item active">방문 / 전환</div>
+  <section class="section" id="about">
+    <div class="container about-grid">
+      <div>
+        <div class="section-title">About WITH</div>
+        <h2>보여주기보다<br><span class="mint">반응이 먼저</span>입니다.</h2>
+        <p class="lead">마케팅은 예쁘게 보이는 것이 아니라 고객이 신뢰하고, 클릭하고, 문의하게 만드는 흐름이어야 합니다. WITH는 그 구조를 설계합니다.</p>
       </div>
-    </div>
-
-    <div class="about-side">
-      <div class="about-card">
+      <div class="card story-card">
         <h3>WITH가 맞는 사장님</h3>
-
-        <div class="about-point">
-          <div class="about-icon">●</div>
-          <div>광고비만 나가고 문의는 늘지 않는 경우</div>
+        <div class="quotes">
+          <div class="quote">광고비만 나가고 문의는 늘지 않는 경우</div>
+          <div class="quote">플레이스, 리뷰, 광고가 따로 노는 경우</div>
+          <div class="quote">예쁜 소개보다 예약과 문의가 필요한 경우</div>
         </div>
-
-        <div class="about-point">
-          <div class="about-icon">●</div>
-          <div>플레이스, 리뷰, 광고가 따로 노는 경우</div>
-        </div>
-
-        <div class="about-point">
-          <div class="about-icon">●</div>
-          <div>예쁜 소개보다 예약과 문의가 필요한 경우</div>
-        </div>
-      </div>
-
-      <div class="about-visual">
-        <img src="about-visual.png" alt="성과 분석 대시보드">
       </div>
     </div>
-
-  </div>
-</section>
+  </section>
 
   <section class="section" id="services">
     <div class="container">
@@ -1046,33 +840,38 @@
   </section>
 
 <section class="section" id="process">
-  <div class="container process-section">
-    <div class="process-head">
-  
+  <div class="container process-wrap">
+
+    <div class="process-text">
+      <div class="section-title"></div>
+      <h2>
+        <br>
+        <span class="mint"></span>
       </h2>
       <p class="lead">
         
       </p>
     </div>
 
-    <div class="process-visual-card">
-      <img src="process.png" alt="WITH 마케팅 프로세스">
+    <div class="process-image">
+      <img src="process.png" alt="마케팅 프로세스">
     </div>
+
   </div>
 </section>
 
   <section class="section" id="contact">
     <div class="container">
       <div class="section-title">Contact</div>
-      <h2>이런분들은 <br><span class="mint">문의 안하셔도 됩니다.</span></h2>
-      <p class="lead">매장 매출에 관심 없으신분,매장에 도움이 되길 원치 않으시는분들.</p>
+      <h2>이런분들은 <br><span class="mint">문의 주시지 않아도 됩니다.</span></h2>
+      <p class="lead">매장 매출에 관심 없으신분,매장 관리에 도움 필요없으신분.</p>
 
       <div class="contact-grid">
         <div class="card contact-card">
           <h3>상담 문의</h3>
           <div class="contact-list">
             <div class="contact-item"><strong>전화 문의</strong><span><a href="tel:01056242935">010-5624-2935</a></span></div>
-            <div class="contact-item"><strong>카카오톡 채널</strong><span><a href="https://open.kakao.com/o/sknAEuqi">https://invite.kakao.com/tc/sE84BY47am</a></span></div>
+            <div class="contact-item"><strong>카카오톡 채널</strong><span><a href="https://invite.kakao.com/tc/sE84BY47am">https://invite.kakao.com/tc/sE84BY47am</a></span></div>
             <div class="contact-item"><strong>이메일</strong><span><a href="mailto:wlstjqwow@naver.com">wlstjqwow@naver.com</a></span></div>
             <div class="contact-item"><strong>회사명</strong><span>WITH COMPANY</span></div>
             <div class="contact-item"><strong>주소</strong><span>서울특별시 신림로 107</span></div>
