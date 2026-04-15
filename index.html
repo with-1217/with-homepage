@@ -6,18 +6,18 @@
   <title>WITH | NAVER PERFORMANCE MARKETING</title>
   <style>
     :root {
-      --bg: #07111b;
-      --bg2: #0b1624;
-      --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.09);
-      --line: rgba(255,255,255,0.10);
-      --text: #eef6ff;
-      --muted: #99a9bc;
+      --bg: #f6fbff;
+      --bg2: #ffffff;
+      --panel: rgba(255,255,255,0.9);
+      --panel2: rgba(255,255,255,0.7);
+      --line: rgba(15,23,42,0.08);
+      --text: #0f172a;
+      --muted: #64748b;
       --mint: #14d2c5;
-      --mint2: #7cf3d6;
+      --mint2: #0fbdb3;
       --violet: #7b61ff;
       --yellow: #ffd84a;
-      --shadow: 0 24px 60px rgba(0,0,0,0.28);
+      --shadow: 0 18px 40px rgba(15,23,42,0.08);
       --radius: 30px;
       --max: 1180px;
     }
@@ -28,9 +28,9 @@
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Pretendard", "Noto Sans KR", sans-serif;
       background:
-        radial-gradient(circle at 10% 0%, rgba(20,210,197,0.14), transparent 22%),
-        radial-gradient(circle at 90% 10%, rgba(123,97,255,0.14), transparent 20%),
-        linear-gradient(180deg, #07111b 0%, #09131e 100%);
+        radial-gradient(circle at 10% 0%, rgba(20,210,197,0.08), transparent 22%),
+        radial-gradient(circle at 90% 10%, rgba(123,97,255,0.06), transparent 20%),
+        linear-gradient(180deg, #f6fbff 0%, #ffffff 100%);
       color: var(--text);
       overflow-x: hidden;
     }
@@ -52,8 +52,8 @@
       inset: 0 0 auto 0;
       z-index: 300;
       backdrop-filter: blur(18px);
-      background: rgba(7,17,27,0.58);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255,255,255,0.75);
+      border-bottom: 1px solid rgba(15,23,42,0.06);
     }
     .container {
       width: min(var(--max), calc(100% - 32px));
@@ -122,9 +122,9 @@
       box-shadow: 0 16px 36px rgba(255,216,74,0.18);
     }
     .btn-dark {
-      background: rgba(255,255,255,0.05);
-      border-color: rgba(255,255,255,0.08);
-      color: #fff;
+      background: rgba(20,210,197,0.08);
+      border-color: rgba(20,210,197,0.2);
+      color: #0f172a;
     }
 
     .deck {
@@ -205,11 +205,11 @@
     }
 
     .glass {
-      background: linear-gradient(180deg, rgba(255,255,255,0.07), rgba(255,255,255,0.03));
-      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.85));
+      border: 1px solid rgba(15,23,42,0.06);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      backdrop-filter: blur(12px);
+      backdrop-filter: blur(10px);
     }
 
     .hero-panel {
@@ -217,6 +217,8 @@
       overflow: hidden;
       position: relative;
       min-height: 560px;
+      background: linear-gradient(180deg, #ffffff, #f4fbfb);
+      border: 1px solid rgba(20,210,197,0.12);
     }
     .hero-panel::before {
       content: "";
