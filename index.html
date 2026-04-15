@@ -1297,74 +1297,81 @@
   </footer>
 
   <a class="floating-kakao" href="https://open.kakao.com/o/sknAEuqi" title="카카오톡 문의">💬</a>
-   el.classList.add('reveal');
-    });
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const revealTargets = document.querySelectorAll(
+        '#about, #services .card, #results .case-card, #process .card, #contact .card, .cta-band'
+      );
 
-    const observer = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observer.unobserve(entry.target);
-        }
+      revealTargets.forEach(function (el) {
+        el.classList.add('reveal');
       });
-    }, { threshold: 0.16 });
 
-    revealTargets.forEach(function (el) {
-      observer.observe(el);
-    });
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.16 });
 
-    const counters = document.querySelectorAll('.stat-value, .case-stat span');
+      revealTargets.forEach(function (el) {
+        observer.observe(el);
+      });
 
-    function parseNumber(text) {
-      const cleaned = text.replace(/,/g, '').trim();
-      const suffix = cleaned.indexOf('%') > -1 ? '%' : (cleaned.toUpperCase().indexOf('X') > -1 ? 'X' : '');
-      const value = parseFloat(cleaned.replace(/[^\d.]/g, '')) || 0;
-      const decimals = cleaned.indexOf('.') > -1 ? (cleaned.split('.')[1].replace(/[^\d]/g, '').length || 0) : 0;
-      const prefix = cleaned.charAt(0) === '+' ? '+' : '';
-      return { value: value, suffix: suffix, decimals: decimals, prefix: prefix };
-    }
+      const counters = document.querySelectorAll('.stat-value, .case-stat span');
 
-    function animateCounter(el) {
-      const original = el.textContent;
-      const parsed = parseNumber(original);
-      if (!parsed.value) return;
-
-      const duration = 1300;
-      const start = performance.now();
-
-      function step(now) {
-        const progress = Math.min((now - start) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        const current = parsed.value * eased;
-        const formatted = parsed.decimals > 0
-          ? current.toFixed(parsed.decimals)
-          : Math.round(current).toLocaleString();
-
-        el.textContent = parsed.prefix + formatted + parsed.suffix;
-
-        if (progress < 1) {
-          requestAnimationFrame(step);
-        } else {
-          el.textContent = original;
-        }
+      function parseNumber(text) {
+        const cleaned = text.replace(/,/g, '').trim();
+        const suffix = cleaned.indexOf('%') > -1 ? '%' : (cleaned.toUpperCase().indexOf('X') > -1 ? 'X' : '');
+        const value = parseFloat(cleaned.replace(/[^\d.]/g, '')) || 0;
+        const decimals = cleaned.indexOf('.') > -1 ? (cleaned.split('.')[1].replace(/[^\d]/g, '').length || 0) : 0;
+        const prefix = cleaned.charAt(0) === '+' ? '+' : '';
+        return { value: value, suffix: suffix, decimals: decimals, prefix: prefix };
       }
 
-      requestAnimationFrame(step);
-    }
+      function animateCounter(el) {
+        const original = el.textContent;
+        const parsed = parseNumber(original);
+        if (!parsed.value) return;
 
-    const counterObserver = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          animateCounter(entry.target);
-          counterObserver.unobserve(entry.target);
+        const duration = 1300;
+        const start = performance.now();
+
+        function step(now) {
+          const progress = Math.min((now - start) / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          const current = parsed.value * eased;
+          const formatted = parsed.decimals > 0
+            ? current.toFixed(parsed.decimals)
+            : Math.round(current).toLocaleString();
+
+          el.textContent = parsed.prefix + formatted + parsed.suffix;
+
+          if (progress < 1) {
+            requestAnimationFrame(step);
+          } else {
+            el.textContent = original;
+          }
         }
-      });
-    }, { threshold: 0.5 });
 
-    counters.forEach(function (el) {
-      counterObserver.observe(el);
+        requestAnimationFrame(step);
+      }
+
+      const counterObserver = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            counterObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+
+      counters.forEach(function (el) {
+        counterObserver.observe(el);
+      });
     });
-  });
-</script>  
+  </script>   
 </body>
 </html>
