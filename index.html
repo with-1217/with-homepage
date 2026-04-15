@@ -4,22 +4,404 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>WITH | NAVER PERFORMANCE MARKETING</title>
-  <style>
-    :root {
-      --bg: #f7fcfb;
-      --white: #ffffff;
-      --mint: #19cfc1;
-      --mint-dark: #11b8ac;
-      --mint-soft: #eafaf8;
-      --text: #0f172a;
-      --muted: #64748b;
-      --line: rgba(15, 23, 42, 0.08);
-      --shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --radius-md: 18px;
-      --max: 1180px;
+<style>
+  :root {
+    --bg: #f7fcfb;
+    --white: #ffffff;
+    --mint: #19cfc1;
+    --mint-dark: #11b8ac;
+    --mint-soft: #eafaf8;
+    --text: #0f172a;
+    --muted: #64748b;
+    --line: rgba(15, 23, 42, 0.08);
+    --shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    --radius-xl: 32px;
+    --radius-lg: 24px;
+    --radius-md: 18px;
+    --max: 1180px;
+  }
+.brand-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+  width: fit-content;
+}
+
+.brand-logo img {
+  height: 36px;
+  width: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.brand-sub {
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: var(--muted);
+}
+
+@media (max-width: 760px) {
+  .brand-logo img {
+    height: 30px;
+  }
+
+  .brand-sub {
+    font-size: 9px;
+    letter-spacing: 0.14em;
+  }
+}
+  .process-wrap {
+    display: grid;
+    gap: 28px;
+  }
+
+  .process-text {
+    max-width: 760px;
+  }
+
+  .process-image {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
+    overflow: hidden;
+  }
+
+  .process-image img {
+    width: 100%;
+    display: block;
+  }
+
+  .about-upgrade {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .about-upgrade-wrap {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 28px;
+    align-items: center;
+  }
+
+  .about-copy {
+    position: relative;
+    z-index: 2;
+  }
+
+  .about-flow {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 28px;
+  }
+
+  .flow-item {
+    padding: 12px 16px;
+    border-radius: 999px;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+  }
+
+  .flow-item.active {
+    background: #19cfc1;
+    border-color: #19cfc1;
+    color: #ffffff;
+  }
+
+  .flow-arrow {
+    color: #19cfc1;
+    font-size: 20px;
+    font-weight: 900;
+  }
+
+  .about-side {
+    position: relative;
+    min-height: 620px;
+  }
+
+  .about-card {
+    position: relative;
+    z-index: 3;
+    width: 78%;
+    margin-left: auto;
+    padding: 30px;
+    background: rgba(255,255,255,0.96);
+    border: 1px solid rgba(15, 23, 42, 0.08);
+    border-radius: 28px;
+    box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  }
+
+  .about-card h3 {
+    margin: 0 0 18px;
+    font-size: 30px;
+    line-height: 1.1;
+    letter-spacing: -0.05em;
+    color: #0f172a;
+  }
+
+  .about-point {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 16px 18px;
+    border-radius: 20px;
+    background: #fcfffe;
+    border: 1px solid rgba(15, 23, 42, 0.08);
+  }
+
+  .about-point + .about-point {
+    margin-top: 12px;
+  }
+
+  .about-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #eafaf8;
+    color: #11b8ac;
+    font-size: 12px;
+    font-weight: 900;
+    flex-shrink: 0;
+  }
+
+  .about-visual {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 88%;
+    z-index: 1;
+  }
+
+  .about-visual img {
+    width: 100%;
+    display: block;
+    border-radius: 28px;
+    box-shadow: 0 24px 50px rgba(15, 23, 42, 0.10);
+  }
+
+  @media (max-width: 1100px) {
+    .about-upgrade-wrap {
+      grid-template-columns: 1fr;
     }
+
+    .about-side {
+      min-height: auto;
+    }
+
+    .about-card {
+      width: 100%;
+      margin-left: 0;
+    }
+
+    .about-visual {
+      position: relative;
+      width: 100%;
+      margin-top: 18px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .process-wrap {
+      gap: 20px;
+    }
+
+    .process-image {
+      border-radius: 20px;
+    }
+
+    .about-flow {
+      gap: 8px;
+    }
+
+    .flow-item {
+      font-size: 13px;
+      padding: 10px 14px;
+    }
+
+    .flow-arrow {
+      font-size: 16px;
+    }
+
+    .about-card {
+      padding: 22px;
+      border-radius: 22px;
+    }
+
+    .about-card h3 {
+      font-size: 24px;
+    }
+
+    .about-point {
+      align-items: flex-start;
+    }
+
+    .about-visual img {
+      border-radius: 22px;
+    }
+
+    @keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(26px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatingPulse {
+  0%, 100% {
+    transform: translateY(0);
+    box-shadow: 0 14px 30px rgba(25, 207, 193, 0.22);
+  }
+  50% {
+    transform: translateY(-4px);
+    box-shadow: 0 18px 36px rgba(25, 207, 193, 0.32);
+  }
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 12px 26px rgba(25, 207, 193, 0.22);
+  }
+  50% {
+    box-shadow: 0 16px 34px rgba(25, 207, 193, 0.34);
+  }
+}
+
+@keyframes lineFloat {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+  50% {
+    transform: translateX(6px) translateY(-4px);
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+  }
+}
+
+.hero {
+  overflow: hidden;
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -80px;
+  top: 120px;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(25, 207, 193, 0.14), rgba(25, 207, 193, 0.04) 45%, transparent 70%);
+  filter: blur(4px);
+  pointer-events: none;
+  animation: lineFloat 7s ease-in-out infinite;
+}
+
+.hero-grid > div:first-child > * {
+  opacity: 0;
+  transform: translateY(26px);
+  animation: fadeUp 0.75s ease forwards;
+}
+
+.hero-grid > div:first-child > *:nth-child(1) { animation-delay: 0.05s; }
+.hero-grid > div:first-child > *:nth-child(2) { animation-delay: 0.14s; }
+.hero-grid > div:first-child > *:nth-child(3) { animation-delay: 0.24s; }
+.hero-grid > div:first-child > *:nth-child(4) { animation-delay: 0.34s; }
+
+.hero-panel {
+  animation: fadeUp 0.9s ease 0.18s forwards;
+  opacity: 0;
+  transform: translateY(24px);
+}
+
+.btn-primary {
+  animation: softGlow 2.4s ease-in-out infinite;
+}
+
+.floating-kakao {
+  animation: floatingPulse 2.2s ease-in-out infinite;
+}
+
+.card,
+.case-card,
+.service-card,
+.contact-card,
+.form-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+}
+
+.card:hover,
+.case-card:hover,
+.service-card:hover,
+.contact-card:hover,
+.form-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 46px rgba(15, 23, 42, 0.09);
+  border-color: rgba(25, 207, 193, 0.18);
+}
+
+.before-after .shot,
+.process-image,
+.about-image-frame,
+.about-visual img {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.before-after .shot:hover,
+.process-image:hover,
+.about-image-frame:hover,
+.about-visual img:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 24px 52px rgba(15, 23, 42, 0.10);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  will-change: opacity, transform;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.flow-item,
+.case-stat,
+.stat-box,
+.contact-item {
+  transition: transform 0.28s ease, background 0.28s ease, border-color 0.28s ease;
+}
+
+.flow-item:hover,
+.case-stat:hover,
+.stat-box:hover,
+.contact-item:hover {
+  transform: translateY(-4px);
+  border-color: rgba(25, 207, 193, 0.20);
+}
+  }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
@@ -32,7 +414,6 @@
       color: var(--text);
       overflow-x: hidden;
     }
-
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; }
 
@@ -51,7 +432,6 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--line);
     }
-
     .topbar-inner {
       display: flex;
       align-items: center;
@@ -59,35 +439,35 @@
       gap: 18px;
       padding: 16px 0;
     }
-
-    .brand-wrap {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .brand-logo {
-      display: inline-flex;
-      align-items: center;
-      line-height: 0;
+    .brand-wrap { display: flex; flex-direction: column; }
+    .brand {
+      position: relative;
       width: fit-content;
+      font-size: 36px;
+      font-weight: 900;
+      letter-spacing: -0.06em;
+      line-height: 1;
+      color: var(--text);
+      text-transform: lowercase;
     }
-
-    .brand-logo img {
-      height: 36px;
-      width: auto;
-      display: block;
-      object-fit: contain;
+    .brand::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      right: -4px;
+      bottom: 1px;
+      height: 14px;
+      border-radius: 999px;
+      background: rgba(25,207,193,0.28);
+      z-index: -1;
     }
-
     .brand-sub {
-      margin-top: 6px;
+      margin-top: 4px;
       font-size: 10px;
       font-weight: 900;
-      letter-spacing: 0.18em;
+      letter-spacing: 0.22em;
       color: var(--muted);
     }
-
     .nav {
       display: flex;
       gap: 22px;
@@ -95,7 +475,6 @@
       font-size: 14px;
       font-weight: 800;
     }
-
     .nav a:hover { color: var(--mint-dark); }
 
     .btn {
@@ -111,16 +490,12 @@
       border: 1px solid transparent;
       white-space: nowrap;
     }
-
     .btn:hover { transform: translateY(-2px); }
-
     .btn-primary {
       background: var(--mint);
       color: #ffffff;
       box-shadow: 0 12px 26px rgba(25,207,193,0.24);
-      animation: softGlow 2.4s ease-in-out infinite;
     }
-
     .btn-secondary {
       background: var(--white);
       color: var(--mint-dark);
@@ -131,29 +506,12 @@
       padding: 110px 0 88px;
       position: relative;
     }
-
     .hero {
       padding-top: 150px;
       min-height: 100vh;
       display: flex;
       align-items: center;
-      overflow: hidden;
     }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      right: -80px;
-      top: 120px;
-      width: 420px;
-      height: 420px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(25, 207, 193, 0.14), rgba(25, 207, 193, 0.04) 45%, transparent 70%);
-      filter: blur(4px);
-      pointer-events: none;
-      animation: lineFloat 7s ease-in-out infinite;
-    }
-
     .hero-grid,
     .about-grid,
     .contact-grid {
@@ -162,18 +520,6 @@
       gap: 22px;
       align-items: center;
     }
-
-    .hero-grid > div:first-child > * {
-      opacity: 0;
-      transform: translateY(26px);
-      animation: fadeUp 0.75s ease forwards;
-    }
-
-    .hero-grid > div:first-child > *:nth-child(1) { animation-delay: 0.05s; }
-    .hero-grid > div:first-child > *:nth-child(2) { animation-delay: 0.14s; }
-    .hero-grid > div:first-child > *:nth-child(3) { animation-delay: 0.24s; }
-    .hero-grid > div:first-child > *:nth-child(4) { animation-delay: 0.34s; }
-
     .eyebrow {
       display: inline-flex;
       align-items: center;
@@ -186,19 +532,15 @@
       letter-spacing: 0.08em;
       margin-bottom: 18px;
     }
-
     h1, h2 {
       margin: 0;
       line-height: 1.03;
       letter-spacing: -0.06em;
       color: var(--text);
     }
-
     h1 { font-size: clamp(44px, 6vw, 88px); }
     h2 { font-size: clamp(34px, 4.5vw, 62px); }
-
     .mint { color: var(--mint-dark); }
-
     .lead {
       margin-top: 18px;
       max-width: 680px;
@@ -206,7 +548,6 @@
       font-size: 18px;
       line-height: 1.7;
     }
-
     .actions {
       display: flex;
       flex-wrap: wrap;
@@ -219,27 +560,9 @@
       border: 1px solid var(--line);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
     }
 
-    .card:hover,
-    .case-card:hover,
-    .service-card:hover,
-    .contact-card:hover,
-    .form-card:hover,
-    .process-image:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 22px 46px rgba(15, 23, 42, 0.09);
-      border-color: rgba(25, 207, 193, 0.18);
-    }
-
-    .hero-panel {
-      padding: 26px;
-      opacity: 0;
-      transform: translateY(24px);
-      animation: fadeUp 0.9s ease 0.18s forwards;
-    }
-
+    .hero-panel { padding: 26px; }
     .panel-top {
       display: flex;
       align-items: center;
@@ -247,14 +570,12 @@
       gap: 12px;
       margin-bottom: 18px;
     }
-
     .panel-top small {
       color: var(--muted);
       font-size: 11px;
       font-weight: 900;
       letter-spacing: 0.16em;
     }
-
     .live {
       display: inline-flex;
       align-items: center;
@@ -266,7 +587,6 @@
       font-size: 12px;
       font-weight: 900;
     }
-
     .live::before {
       content: "";
       width: 8px;
@@ -274,7 +594,6 @@
       border-radius: 50%;
       background: var(--mint);
     }
-
     .hero-copy {
       font-size: 30px;
       font-weight: 900;
@@ -283,26 +602,17 @@
       margin-bottom: 18px;
       color: var(--text);
     }
-
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
     }
-
     .stat-box {
       padding: 18px;
       border-radius: var(--radius-lg);
       background: #fcfffe;
       border: 1px solid var(--line);
-      transition: transform 0.28s ease, border-color 0.28s ease;
     }
-
-    .stat-box:hover {
-      transform: translateY(-4px);
-      border-color: rgba(25, 207, 193, 0.20);
-    }
-
     .stat-label {
       font-size: 12px;
       color: var(--muted);
@@ -311,7 +621,6 @@
       text-transform: uppercase;
       margin-bottom: 10px;
     }
-
     .stat-value {
       font-size: 40px;
       font-weight: 900;
@@ -319,7 +628,6 @@
       letter-spacing: -0.06em;
       color: var(--text);
     }
-
     .stat-chip {
       display: inline-flex;
       margin-top: 10px;
@@ -330,7 +638,6 @@
       font-size: 11px;
       font-weight: 900;
     }
-
     .wide-box {
       grid-column: 1 / -1;
       display: grid;
@@ -338,7 +645,6 @@
       gap: 14px;
       align-items: end;
     }
-
     .bars {
       height: 180px;
       display: flex;
@@ -346,13 +652,11 @@
       gap: 16px;
       padding-top: 12px;
     }
-
     .bar {
       flex: 1;
       border-radius: 18px 18px 8px 8px;
       position: relative;
     }
-
     .bar::before {
       content: attr(data-title);
       position: absolute;
@@ -364,7 +668,6 @@
       font-weight: 900;
       white-space: nowrap;
     }
-
     .bar::after {
       content: attr(data-value);
       position: absolute;
@@ -375,15 +678,12 @@
       font-size: 14px;
       font-weight: 900;
     }
-
     .bar.before { background: #dfe8ec; }
     .bar.after { background: linear-gradient(180deg, #7be8df, var(--mint)); }
-
     .mini-list {
       display: grid;
       gap: 10px;
     }
-
     .mini-list div {
       padding: 12px 14px;
       border-radius: var(--radius-md);
@@ -407,27 +707,28 @@
     .service-card,
     .case-card,
     .contact-card,
-    .form-card {
+    .form-card,
+    .process-card {
       padding: 28px;
     }
-
     .story-card h3,
     .service-card h3,
     .case-card h3,
     .contact-card h3,
-    .form-card h3 {
+    .form-card h3,
+    .process-card h3 {
       margin: 0 0 12px;
       font-size: 28px;
       line-height: 1.12;
       letter-spacing: -0.05em;
       color: var(--text);
     }
-
     .story-card p,
     .service-card p,
     .case-card p,
     .contact-card p,
-    .form-card p {
+    .form-card p,
+    .process-card p {
       margin: 0;
       color: var(--muted);
       font-size: 15px;
@@ -439,7 +740,6 @@
       display: grid;
       gap: 12px;
     }
-
     .quote {
       padding: 16px 18px;
       border-radius: var(--radius-md);
@@ -451,12 +751,14 @@
     }
 
     .services,
-    .cases {
+    .cases,
+    .process-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 18px;
       margin-top: 36px;
     }
+    .process-grid { grid-template-columns: repeat(4, 1fr); }
 
     .service-head {
       display: flex;
@@ -465,7 +767,6 @@
       gap: 12px;
       margin-bottom: 16px;
     }
-
     .service-icon {
       width: 58px;
       height: 58px;
@@ -477,14 +778,12 @@
       background: var(--mint-soft);
       color: var(--mint-dark);
     }
-
     .service-no {
       color: var(--mint-dark);
       font-size: 13px;
       font-weight: 900;
       letter-spacing: 0.12em;
     }
-
     .service-meta {
       margin-top: 18px;
       padding-top: 16px;
@@ -502,27 +801,18 @@
       color: var(--mint-dark);
       margin-bottom: 10px;
     }
-
     .case-stats {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-top: 18px;
     }
-
     .case-stat {
       padding: 14px;
       border-radius: var(--radius-md);
       background: #fcfffe;
       border: 1px solid var(--line);
-      transition: transform 0.28s ease, border-color 0.28s ease;
     }
-
-    .case-stat:hover {
-      transform: translateY(-4px);
-      border-color: rgba(25, 207, 193, 0.20);
-    }
-
     .case-stat strong {
       display: block;
       font-size: 12px;
@@ -532,7 +822,6 @@
       text-transform: uppercase;
       font-weight: 900;
     }
-
     .case-stat span {
       display: block;
       color: var(--text);
@@ -541,26 +830,22 @@
       letter-spacing: -0.06em;
       line-height: 1;
     }
-
     .case-stat.highlight {
       background: var(--mint-soft);
-      border-color: rgba(25, 207, 193, 0.22);
+      border-color: rgba(25,207,193,0.22);
     }
-
     .case-subtext {
       margin-top: 12px;
       color: var(--mint-dark);
       font-size: 14px;
       font-weight: 800;
     }
-
     .before-after {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
       margin-top: 18px;
     }
-
     .shot-label {
       margin-bottom: 8px;
       font-size: 12px;
@@ -569,46 +854,14 @@
       text-transform: uppercase;
       color: var(--muted);
     }
-
     .shot-label.highlight { color: var(--mint-dark); }
-
     .shot {
       border-radius: var(--radius-md);
       overflow: hidden;
       border: 1px solid var(--line);
       background: #ffffff;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
     }
-
-    .shot:hover {
-      transform: translateY(-6px) scale(1.01);
-      box-shadow: 0 24px 52px rgba(15, 23, 42, 0.10);
-    }
-
     .shot img {
-      width: 100%;
-      display: block;
-    }
-
-    .process-wrap {
-      display: grid;
-      gap: 28px;
-    }
-
-    .process-text {
-      max-width: 760px;
-    }
-
-    .process-image {
-      background: #ffffff;
-      border: 1px solid rgba(15, 23, 42, 0.08);
-      border-radius: 28px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.06);
-      overflow: hidden;
-      transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.28s ease;
-    }
-
-    .process-image img {
       width: 100%;
       display: block;
     }
@@ -630,37 +883,25 @@
       display: grid;
       gap: 12px;
     }
-
     .contact-item {
       padding: 18px;
       border-radius: 20px;
       background: #fcfffe;
       border: 1px solid var(--line);
-      transition: transform 0.28s ease, border-color 0.28s ease;
     }
-
-    .contact-item:hover {
-      transform: translateY(-4px);
-      border-color: rgba(25, 207, 193, 0.20);
-    }
-
     .contact-item strong {
       display: block;
       margin-bottom: 6px;
       color: var(--text);
       font-size: 14px;
     }
-
-    .contact-item a,
-    .contact-item span {
+    .contact-item a, .contact-item span {
       color: var(--text);
       font-size: 14px;
       word-break: break-all;
       font-weight: 700;
     }
-
-    .input,
-    .textarea {
+    .input, .textarea {
       width: 100%;
       margin-top: 12px;
       padding: 15px 16px;
@@ -672,20 +913,12 @@
       font-family: inherit;
       outline: none;
     }
-
-    .input::placeholder,
-    .textarea::placeholder { color: #94a3b8; }
-
-    .input:focus,
-    .textarea:focus {
-      border-color: rgba(25, 207, 193, 0.45);
-      box-shadow: 0 0 0 4px rgba(25, 207, 193, 0.10);
+    .input::placeholder, .textarea::placeholder { color: #94a3b8; }
+    .input:focus, .textarea:focus {
+      border-color: rgba(25,207,193,0.45);
+      box-shadow: 0 0 0 4px rgba(25,207,193,0.10);
     }
-
-    .textarea {
-      min-height: 138px;
-      resize: vertical;
-    }
+    .textarea { min-height: 138px; resize: vertical; }
 
     .cta-band {
       margin-top: 26px;
@@ -693,13 +926,12 @@
       border-radius: 30px;
       background: linear-gradient(135deg, var(--mint), var(--mint-dark));
       color: #ffffff;
-      box-shadow: 0 18px 36px rgba(25, 207, 193, 0.24);
+      box-shadow: 0 18px 36px rgba(25,207,193,0.24);
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 16px;
     }
-
     .cta-band h3 {
       margin: 0 0 8px;
       font-size: clamp(34px, 4vw, 52px);
@@ -707,13 +939,11 @@
       letter-spacing: -0.06em;
       color: #ffffff;
     }
-
     .cta-band p {
       margin: 0;
       color: rgba(255,255,255,0.92);
       font-size: 16px;
     }
-
     .cta-band .btn-secondary {
       background: #ffffff;
       color: var(--mint-dark);
@@ -725,7 +955,6 @@
       color: var(--muted);
       font-size: 14px;
     }
-
     .footer-box {
       border-top: 1px solid var(--line);
       padding-top: 20px;
@@ -734,7 +963,6 @@
       gap: 12px;
       flex-wrap: wrap;
     }
-
     .floating-kakao {
       position: fixed;
       right: 18px;
@@ -749,121 +977,22 @@
       background: var(--mint);
       color: #ffffff;
       font-size: 28px;
-      box-shadow: 0 14px 30px rgba(25, 207, 193, 0.22);
-      animation: floatingPulse 2.2s ease-in-out infinite;
-    }
-
-    .reveal {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
-      will-change: opacity, transform;
-    }
-
-    .reveal.is-visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(26px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes floatingPulse {
-      0%, 100% {
-        transform: translateY(0);
-        box-shadow: 0 14px 30px rgba(25, 207, 193, 0.22);
-      }
-      50% {
-        transform: translateY(-4px);
-        box-shadow: 0 18px 36px rgba(25, 207, 193, 0.32);
-      }
-    }
-
-    @keyframes softGlow {
-      0%, 100% {
-        box-shadow: 0 12px 26px rgba(25, 207, 193, 0.22);
-      }
-      50% {
-        box-shadow: 0 16px 34px rgba(25, 207, 193, 0.34);
-      }
-    }
-
-    @keyframes lineFloat {
-      0% { transform: translateX(0) translateY(0); }
-      50% { transform: translateX(6px) translateY(-4px); }
-      100% { transform: translateX(0) translateY(0); }
+      box-shadow: 0 14px 30px rgba(25,207,193,0.22);
     }
 
     @media (max-width: 1100px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .services,
-      .cases {
-        grid-template-columns: 1fr 1fr;
-      }
+      .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services, .cases, .process-grid { grid-template-columns: 1fr 1fr; }
     }
-
     @media (max-width: 760px) {
-      .brand-logo img {
-        height: 30px;
-      }
-
-      .brand-sub {
-        font-size: 9px;
-        letter-spacing: 0.14em;
-      }
-
       .nav { display: none; }
-
-      .section {
-        padding: 92px 0 72px;
-      }
-
-      .hero {
-        padding-top: 132px;
-        min-height: auto;
-      }
-
-      .services,
-      .cases,
-      .stats-grid,
-      .before-after {
-        grid-template-columns: 1fr;
-      }
-
-      .wide-box {
-        grid-template-columns: 1fr;
-      }
-
-      .actions,
-      .cta-band {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .btn {
-        width: 100%;
-      }
-
-      .process-wrap {
-        gap: 20px;
-      }
-
-      .process-image {
-        border-radius: 20px;
-      }
+      .section { padding: 92px 0 72px; }
+      .hero { padding-top: 132px; min-height: auto; }
+      .services, .cases, .process-grid, .stats-grid, .before-after { grid-template-columns: 1fr; }
+      .wide-box { grid-template-columns: 1fr; }
+      .actions, .cta-band { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .brand { font-size: 30px; }
     }
   </style>
 </head>
@@ -871,12 +1000,11 @@
   <header class="topbar">
     <div class="container topbar-inner">
       <div class="brand-wrap">
-        <a href="#hero" class="brand-logo">
-          <img src="with-logo.png" alt="WITH 로고">
-        </a>
-        <div class="brand-sub">NAVER PERFORMANCE MARKETING</div>
-      </div>
-
+  <a href="#hero" class="brand-logo">
+    <img src="with-logo.png" alt="WITH 로고">
+  </a>
+  <div class="brand-sub">NAVER PERFORMANCE MARKETING</div>
+</div>
       <nav class="nav">
         <a href="#hero">HOME</a>
         <a href="#about">ABOUT</a>
@@ -884,8 +1012,7 @@
         <a href="#results">RESULT</a>
         <a href="#contact">CONTACT</a>
       </nav>
-
-      <a class="btn btn-primary" href="https://open.kakao.com/o/sknAEuqi">지금 상담 연결</a>
+      <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">지금 상담 연결</a>
     </div>
   </header>
 
@@ -895,11 +1022,12 @@
         <div class="eyebrow">WITH PERFORMANCE MARKETING</div>
         <h1>
           광고가 아니라<br>
-          성장을 설계합니다
+          성장을 설계합니다<br>
+      
         </h1>
-        <p class="lead">같은 마케팅, 다른 결과. 차이는 전략입니다. 손님이 들어오는 구조, WITH가 만듭니다.</p>
+        <p class="lead"> 같은 마케팅,다른 결과,차이는 전략입니다. 손님이 들어오는 구조, WITH가 만듭니다.</p>
         <div class="actions">
-          <a class="btn btn-primary" href="https://open.kakao.com/o/sknAEuqi">무료로 설계 진단 받기</a>
+          <a class="btn btn-primary" href="https://invite.kakao.com/tc/sE84BY47am">무료로 설계 진단 받기</a>
           <a class="btn btn-secondary" href="#results">실제 사례 보기</a>
         </div>
       </div>
@@ -916,13 +1044,11 @@
             <div class="stat-value">2.1X</div>
             <div class="stat-chip">CTA 구조 강화</div>
           </div>
-
           <div class="stat-box">
             <div class="stat-label">플레이스 노출</div>
             <div class="stat-value">+187%</div>
             <div class="stat-chip">검색 흐름 정리</div>
           </div>
-
           <div class="stat-box wide-box">
             <div>
               <div class="stat-label">매출 상승 흐름</div>
@@ -942,35 +1068,64 @@
     </div>
   </section>
 
-  <section class="section" id="about">
-    <div class="container about-grid">
-      <div>
-        <div class="section-title">ABOUT WITH</div>
-        <h2>
-          광고비만 지출하기보다<br>
-          <span class="mint">설계가 먼저</span>입니다.
-        </h2>
-        <p class="lead">
-          마케팅은 무조건 돈을 쓰는 것이 아니라,
-          고객이 신뢰하고 클릭하고 문의하게 만드는 흐름이어야 합니다.
-          WITH는 그 구조를 설계합니다.
-        </p>
-      </div>
+<section class="section about-upgrade" id="about">
+  <div class="container about-upgrade-wrap">
 
-      <div class="card story-card">
-        <h3>WITH가 맞는 사장님</h3>
-        <div class="quotes">
-          <div class="quote">광고비만 나가고 문의는 늘지 않는 경우</div>
-          <div class="quote">플레이스, 리뷰, 광고가 따로 노는 경우</div>
-          <div class="quote">꾸며짐보다 예약과 문의가 필요한 경우</div>
-        </div>
+    <div class="about-copy">
+      <div class="section-title">ABOUT WITH</div>
+      <h2>
+        광고비만 지출하기 보단<br>
+        <span class="mint">설계가 먼저</span>입니다.
+      </h2>
+      <p class="lead">
+        마케팅은 모르는 상태에서 무조건 돈을 써서 손님이 오는게 아니라,
+        고객이 신뢰하고, 클릭하고, 문의하게 만드는 흐름이어야 합니다.
+        WITH는 그 구조를 설계합니다.
+      </p>
+
+      <div class="about-flow">
+        <div class="flow-item">검색 / 노출</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">유입 / 클릭</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item">예약 / 문의</div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-item active">방문 / 전환</div>
       </div>
     </div>
-  </section>
+
+    <div class="about-side">
+      <div class="about-card">
+        <h3>WITH가 맞는 사장님</h3>
+
+        <div class="about-point">
+          <div class="about-icon">●</div>
+          <div>광고비만 나가고 문의는 늘지 않는 경우</div>
+        </div>
+
+        <div class="about-point">
+          <div class="about-icon">●</div>
+          <div>플레이스, 리뷰, 광고가 따로 노는 경우</div>
+        </div>
+
+        <div class="about-point">
+          <div class="about-icon">●</div>
+          <div>꾸며짐보다 예약과 문의가 필요한 경우</div>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <img src="about-visual.png" alt="성과 분석 대시보드">
+      </div>
+    </div>
+
+  </div>
+</section>
+  
 
   <section class="section" id="services">
     <div class="container">
-      <div class="section-title">MAIN SERVICE</div>
+      <div class="section-title">Main Service</div>
       <h2>핵심 서비스만<br><span class="mint">깔끔하게 정리</span>했습니다.</h2>
       <p class="lead">네이버 플레이스, SEO, CPC, 블로그, 리뷰, 클립, 인플루언서까지 실제 문의와 방문 전환으로 이어지게 설계합니다.</p>
 
@@ -981,35 +1136,30 @@
           <p>첫 화면, 키워드, 노출 구조를 정리해 검색부터 클릭까지 끌어올립니다.</p>
           <div class="service-meta">플레이스 컨설팅 · 순위 관리 · 구조 정리</div>
         </div>
-
         <div class="card service-card">
           <div class="service-head"><div class="service-icon">🔎</div><div class="service-no">02</div></div>
           <h3>SEO · CPC 광고</h3>
           <p>키워드와 광고 구조를 재설계해 유입만이 아니라 실제 문의까지 연결합니다.</p>
           <div class="service-meta">검색 최적화 · 광고 세팅 · 리드 유입</div>
         </div>
-
         <div class="card service-card">
           <div class="service-head"><div class="service-icon">📝</div><div class="service-no">03</div></div>
           <h3>블로그 · 리뷰 운영</h3>
           <p>보여주기용이 아니라 신뢰가 쌓이고 문의가 생기게 흐름을 만듭니다.</p>
           <div class="service-meta">후기 배포 · 신뢰도 강화 · 예약 유도</div>
         </div>
-
         <div class="card service-card">
           <div class="service-head"><div class="service-icon">📲</div><div class="service-no">04</div></div>
           <h3>탭 상위노출 전략</h3>
           <p>반복 노출 구조를 만들고 클릭 후 이탈을 줄여 고객 머릿속에 남게 합니다.</p>
           <div class="service-meta">반복 노출 · 클릭 유도 · 가시성 확대</div>
         </div>
-
         <div class="card service-card">
           <div class="service-head"><div class="service-icon">🎬</div><div class="service-no">05</div></div>
           <h3>네이버 클립 · 체험단</h3>
           <p>짧고 강한 콘텐츠와 체험 흐름으로 지역 화제성과 주목도를 함께 만듭니다.</p>
           <div class="service-meta">클립 · 숏폼 · 체험 후기 · 지역 바이럴</div>
         </div>
-
         <div class="card service-card">
           <div class="service-head"><div class="service-icon">✨</div><div class="service-no">06</div></div>
           <h3>인플루언서 · PPL</h3>
@@ -1022,9 +1172,9 @@
 
   <section class="section" id="results">
     <div class="container">
-      <div class="section-title">REAL CASES</div>
+      <div class="section-title">Real Cases</div>
       <h2>실제 사례 2개만<br><span class="mint">확실하게 보여드립니다.</span></h2>
-      <p class="lead">보는 순간 차이가 바로 이해되도록 정리했습니다.</p>
+      <p class="lead">보는 순간 차이가 바로 이해 되실겁니다.</p>
 
       <div class="cases">
         <div class="card case-card">
@@ -1080,24 +1230,31 @@
     </div>
   </section>
 
-  <section class="section" id="process">
-    <div class="container process-wrap">
-      <div class="process-text">
-        <div class="section-title">PROCESS</div>
-        <h2>필요한 것만 빠르게<br><span class="mint">정리합니다.</span></h2>
-        <p class="lead">현재 구조를 진단하고, 전환 흐름을 설계한 뒤, 실행과 보정까지 이어갑니다.</p>
-      </div>
+<section class="section" id="process">
+  <div class="container process-wrap">
 
-      <div class="process-image">
-        <img src="process.png" alt="마케팅 프로세스">
-      </div>
+    <div class="process-text">
+      <div class="section-title"></div>
+      <h2>
+        <br>
+        <span class="mint"></span>
+      </h2>
+      <p class="lead">
+        
+      </p>
     </div>
-  </section>
+
+    <div class="process-image">
+      <img src="process.png" alt="마케팅 프로세스">
+    </div>
+
+  </div>
+</section>
 
   <section class="section" id="contact">
     <div class="container">
-      <div class="section-title">CONTACT</div>
-      <h2>성장은 선택이 아니라<br><span class="mint">전략의 결과입니다.</span></h2>
+      <div class="section-title">Contact</div>
+      <h2>성장은 선택이 아니라 <br><span class="mint">전략의 결과입니다.</span></h2>
       <p class="lead">지금 놓치고 있는 고객, 확인해보셨나요?</p>
 
       <div class="contact-grid">
@@ -1105,13 +1262,12 @@
           <h3>상담 문의</h3>
           <div class="contact-list">
             <div class="contact-item"><strong>전화 문의</strong><span><a href="tel:01056242935">010-5624-2935</a></span></div>
-            <div class="contact-item"><strong>카카오톡 채널</strong><span><a href="https://open.kakao.com/o/sknAEuqi">https://open.kakao.com/o/sknAEuqi</a></span></div>
+            <div class="contact-item"><strong>카카오톡 채널</strong><span><a href="https://invite.kakao.com/tc/sE84BY47am">https://invite.kakao.com/tc/sE84BY47am</a></span></div>
             <div class="contact-item"><strong>이메일</strong><span><a href="mailto:wlstjqwow@naver.com">wlstjqwow@naver.com</a></span></div>
             <div class="contact-item"><strong>회사명</strong><span>WITH COMPANY</span></div>
             <div class="contact-item"><strong>주소</strong><span>서울특별시 신림로 107</span></div>
           </div>
         </div>
-
         <div class="card form-card">
           <h3>빠른 상담 신청</h3>
           <input class="input" type="text" placeholder="업체명" />
@@ -1126,7 +1282,7 @@
       <div class="cta-band">
         <div>
           <h3>문제는 마케팅이 아니라,<br>방향일 수 있습니다</h3>
-          <p>WITH는 광고가 아니라 성장을 설계합니다. 같은 마케팅, 다른 결과. 차이는 전략입니다.</p>
+          <p>WITH는 광고가 아니라, 성장을 설계합니다.같은 마케팅, 다른 결과. 차이는 전략입니다.</p>
         </div>
         <a class="btn btn-secondary" href="https://open.kakao.com/o/sknAEuqi">전략 점검 받아보기</a>
       </div>
@@ -1141,11 +1297,10 @@
   </footer>
 
   <a class="floating-kakao" href="https://open.kakao.com/o/sknAEuqi" title="카카오톡 문의">💬</a>
-
-  <script>
+<script>
     document.addEventListener('DOMContentLoaded', function () {
       const revealTargets = document.querySelectorAll(
-        '#about, #services .card, #results .case-card, #process .process-image, #contact .card, .cta-band'
+        '#about, #services .card, #results .case-card, #process .card, #contact .card, .cta-band'
       );
 
       revealTargets.forEach(function (el) {
@@ -1217,6 +1372,6 @@
         counterObserver.observe(el);
       });
     });
-  </script>
+  </script>   
 </body>
 </html>
